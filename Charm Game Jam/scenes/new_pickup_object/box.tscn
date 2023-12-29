@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://dbg2liwiwsw0h"]
+[gd_scene load_steps=9 format=3 uid="uid://dbg2liwiwsw0h"]
 
 [ext_resource type="PackedScene" uid="uid://ckxeprino2u42" path="res://scenes/new_pickup_object/pick_up_object.tscn" id="1_wyxed"]
 [ext_resource type="Script" path="res://scenes/new_pickup_object/CatDetector.gd" id="2_vldws"]
+[ext_resource type="AudioStream" uid="uid://vi0gp381hxl3" path="res://assets/sound_effects/Box_Pick_Up.mp3" id="3_3j0ih"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_0gfst"]
 radius = 142.706
@@ -46,6 +47,9 @@ script = ExtResource("2_vldws")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CatDetector" index="0"]
 shape = SubResource("CircleShape2D_mqmhv")
+
+[node name="Box_Sound_Effect" type="AudioStreamPlayer" parent="." index="6"]
+stream = ExtResource("3_3j0ih")
 
 [connection signal="body_entered" from="PickUpRange" to="." method="_on_pick_up_range_body_entered"]
 [connection signal="body_exited" from="PickUpRange" to="." method="_on_pick_up_range_body_exited"]

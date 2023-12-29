@@ -1,6 +1,18 @@
-[gd_scene load_steps=3 format=3 uid="uid://boinb1ngjgvg"]
+[gd_scene load_steps=5 format=3 uid="uid://boinb1ngjgvg"]
 
 [ext_resource type="Script" path="res://scenes/charm_pickups/charm_pickup.gd" id="1_epk8n"]
+[ext_resource type="Texture2D" uid="uid://dqnx1wo02axmo" path="res://assets/Charm/Charm_Pickup.PNG" id="2_6b6th"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8c676"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_6b6th")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_5u2ju"]
 radius = 32.1403
@@ -9,6 +21,9 @@ radius = 32.1403
 script = ExtResource("1_epk8n")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(2, -6)
+scale = Vector2(0.103027, 0.103027)
+sprite_frames = SubResource("SpriteFrames_8c676")
 
 [node name="PickUpRange" type="Area2D" parent="."]
 collision_layer = 0

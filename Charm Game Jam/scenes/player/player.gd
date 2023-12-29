@@ -22,16 +22,19 @@ signal charm_changed(new_charm)
 var charm_progress = 50:
 	set(new_val):
 		if new_val < charm_progress: # lost charm
+			$FoulSoundEffect.play()
 			var temp = charming_foul_text.instantiate()
 			temp.set_type("foul")
 			get_tree().current_scene.add_child(temp)
 			temp.global_position = global_position + Vector2(20,0)
 		elif new_val - charm_progress > 1:
+			$CharmingSoundEffect.play()
 			var temp = charming_foul_text.instantiate()
 			temp.set_type("charming")
 			get_tree().current_scene.add_child(temp)
 			temp.global_position = global_position+ Vector2(20,0)
 		else:
+			$Collection_Sound.play()
 			var temp = charming_foul_text.instantiate()
 			temp.set_type("1")
 			get_tree().current_scene.add_child(temp)
@@ -62,6 +65,7 @@ func _physics_process(delta):
 	# Handle jump.
 	if Input.is_action_just_pressed("jump") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
+		$Jump_Sound_Effect.play()
 	
 	
 

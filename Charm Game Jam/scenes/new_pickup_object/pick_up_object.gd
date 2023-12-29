@@ -60,7 +60,7 @@ func _pick_me_up():
 		cat_detector.monitorable = false
 		cat_detector_collision.disabled = true
 		cat_collision.disabled = true
-		
+		$Box_Sound_Effect.play()
 		
 		reparent(player.pickup_slot)
 		#global_position = player.pickup_slot.global_position

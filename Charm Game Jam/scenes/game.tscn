@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://hflp6iqdm5ae"]
+[gd_scene load_steps=16 format=3 uid="uid://hflp6iqdm5ae"]
 
 [ext_resource type="PackedScene" uid="uid://b1srp8i4xuuhj" path="res://scenes/player/player.tscn" id="1_6yklp"]
 [ext_resource type="Script" path="res://scenes/game.gd" id="1_7woxh"]
@@ -13,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://dyplx8aokv1vd" path="res://assets/background/layers/rocks_2.png" id="9_3wa02"]
 [ext_resource type="PackedScene" uid="uid://bpgeeo1h8pj4o" path="res://scenes/tree/tree.tscn" id="10_4tros"]
 [ext_resource type="PackedScene" uid="uid://boinb1ngjgvg" path="res://scenes/charm_pickups/charm_pickup.tscn" id="11_60j8x"]
+[ext_resource type="AudioStream" uid="uid://fioslm8u8ey" path="res://assets/music/Level Music.mp3" id="14_t38eb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lb22k"]
 size = Vector2(8164, 105)
@@ -149,5 +150,10 @@ position = Vector2(365, -315)
 
 [node name="CharmPickup14" parent="." instance=ExtResource("11_60j8x")]
 position = Vector2(365, -315)
+
+[node name="Level_Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("14_t38eb")
+volume_db = -10.24
+autoplay = true
 
 [connection signal="timeout" from="UI/Control/TimeLabel/Timer" to="." method="_on_timer_timeout"]
