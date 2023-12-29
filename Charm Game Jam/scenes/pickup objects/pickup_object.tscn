@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://chyhhah4car8o"]
+
+[ext_resource type="Script" path="res://scenes/pickup objects/pickup_object.gd" id="1_qkebt"]
+[ext_resource type="Script" path="res://scenes/pickup objects/PickupRange.gd" id="2_2n11b"]
+
+[node name="PickupObject" type="RigidBody2D"]
+script = ExtResource("1_qkebt")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+
+[node name="PickupRange" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("2_2n11b")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PickupRange"]
+
+[connection signal="body_entered" from="PickupRange" to="PickupRange" method="_on_body_entered"]
+[connection signal="body_exited" from="PickupRange" to="PickupRange" method="_on_body_exited"]

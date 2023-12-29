@@ -1,0 +1,90 @@
+[gd_scene load_steps=12 format=3 uid="uid://hflp6iqdm5ae"]
+
+[ext_resource type="PackedScene" uid="uid://b1srp8i4xuuhj" path="res://scenes/player/player.tscn" id="1_6yklp"]
+[ext_resource type="Script" path="res://scenes/UI.gd" id="1_550o8"]
+[ext_resource type="Texture2D" uid="uid://dla1bp83255n5" path="res://assets/Charm/Charm_Empty.PNG" id="1_a1s1d"]
+[ext_resource type="PackedScene" uid="uid://dbg2liwiwsw0h" path="res://scenes/new_pickup_object/box.tscn" id="2_de3ji"]
+[ext_resource type="Texture2D" uid="uid://bin7ukrh3dvsh" path="res://assets/Charm/Charm_Full.PNG" id="2_euybt"]
+[ext_resource type="PackedScene" uid="uid://dq3jquxg1ttyu" path="res://scenes/shop_stalls/shop_stall_2.tscn" id="6_f47hv"]
+[ext_resource type="Texture2D" uid="uid://dwovy60b00noa" path="res://assets/background/layers/rocks_1.png" id="7_gbac6"]
+[ext_resource type="Texture2D" uid="uid://18s53s7o3end" path="res://assets/background/layers/sky.png" id="8_258hm"]
+[ext_resource type="Texture2D" uid="uid://dyplx8aokv1vd" path="res://assets/background/layers/rocks_2.png" id="9_3wa02"]
+[ext_resource type="PackedScene" uid="uid://bpgeeo1h8pj4o" path="res://scenes/tree/tree.tscn" id="10_4tros"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lb22k"]
+size = Vector2(8164, 105)
+
+[node name="Game" type="Node2D"]
+
+[node name="UI" type="CanvasLayer" parent="."]
+script = ExtResource("1_550o8")
+
+[node name="Control" type="Control" parent="UI"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="UI/Control"]
+layout_mode = 0
+offset_left = 999.0
+offset_top = -1.0
+offset_right = 3047.0
+offset_bottom = 2047.0
+scale = Vector2(0.075, 0.075)
+value = 50.0
+fill_mode = 3
+texture_under = ExtResource("1_a1s1d")
+texture_progress = ExtResource("2_euybt")
+
+[node name="Player" parent="." instance=ExtResource("1_6yklp")]
+position = Vector2(0, -47)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(2176, 202.5)
+shape = SubResource("RectangleShape2D_lb22k")
+
+[node name="Box" parent="." instance=ExtResource("2_de3ji")]
+position = Vector2(356, -15)
+
+[node name="Box2" parent="." instance=ExtResource("2_de3ji")]
+position = Vector2(821, -345)
+
+[node name="ShopStall_2" parent="." instance=ExtResource("6_f47hv")]
+position = Vector2(1293, 50)
+
+[node name="ShopStall_3" parent="." instance=ExtResource("6_f47hv")]
+position = Vector2(1621, 50)
+
+[node name="Tree" parent="." instance=ExtResource("10_4tros")]
+position = Vector2(2065, 148)
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground"]
+position = Vector2(1161, 653)
+scale = Vector2(1.27188, 1.30185)
+texture = ExtResource("8_258hm")
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_mirroring = Vector2(2400, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+position = Vector2(0, -666)
+scale = Vector2(1.25, 1.25)
+texture = ExtResource("7_gbac6")
+centered = false
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground"]
+position = Vector2(-2, -664)
+motion_mirroring = Vector2(2400, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2"]
+texture_repeat = 2
+position = Vector2(4, 2)
+scale = Vector2(1.25, 1.25)
+texture = ExtResource("9_3wa02")
+centered = false
+region_rect = Rect2(1920, 1080, 100, 100)

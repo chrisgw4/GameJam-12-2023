@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=3 uid="uid://dubn2whaj6d5s"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_11hh2"]
+radius = 84.214
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wdyi3"]
+size = Vector2(60, 60)
+
+[node name="BoxStatic" type="StaticBody2D"]
+rotation = 3.14159
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+
+[node name="PickupRange" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PickupRange"]
+shape = SubResource("CircleShape2D_11hh2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_wdyi3")
+one_way_collision = true
+one_way_collision_margin = 0.0

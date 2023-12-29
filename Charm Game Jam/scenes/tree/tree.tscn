@@ -1,0 +1,39 @@
+[gd_scene load_steps=4 format=3 uid="uid://bpgeeo1h8pj4o"]
+
+[ext_resource type="Script" path="res://scenes/tree/tree.gd" id="1_gegl7"]
+[ext_resource type="Texture2D" uid="uid://b0jyabdm6d1bs" path="res://assets/clock/Red-Circle-Small-PNG-File.png" id="1_p04ru"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_riqsd"]
+radius = 402.08
+
+[node name="Tree" type="StaticBody2D"]
+script = ExtResource("1_gegl7")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_riqsd")
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="."]
+modulate = Color(0.862745, 1, 0.819608, 1)
+offset_left = -75.0
+offset_top = -485.0
+offset_right = 525.0
+offset_bottom = 115.0
+scale = Vector2(0.25, 0.25)
+max_value = 10.0
+step = 0.001
+value = 10.0
+fill_mode = 4
+texture_progress = ExtResource("1_p04ru")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 10.0
+one_shot = true
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

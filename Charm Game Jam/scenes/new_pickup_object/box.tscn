@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://dbg2liwiwsw0h"]
+
+[ext_resource type="PackedScene" uid="uid://ckxeprino2u42" path="res://scenes/new_pickup_object/pick_up_object.tscn" id="1_wyxed"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_0gfst"]
+radius = 142.706
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qo8o5"]
+size = Vector2(80, 80)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fg8fh"]
+size = Vector2(80, 80)
+
+[node name="Box" instance=ExtResource("1_wyxed")]
+
+[node name="CollisionShape2D" parent="PickUpRange" index="0"]
+shape = SubResource("CircleShape2D_0gfst")
+
+[node name="CollisionShape2D" parent="." index="2"]
+shape = SubResource("RectangleShape2D_qo8o5")
+
+[node name="CollisionShape2D2" parent="." index="3"]
+shape = SubResource("RectangleShape2D_fg8fh")
+
+[connection signal="body_entered" from="PickUpRange" to="." method="_on_pick_up_range_body_entered"]
+[connection signal="body_exited" from="PickUpRange" to="." method="_on_pick_up_range_body_exited"]

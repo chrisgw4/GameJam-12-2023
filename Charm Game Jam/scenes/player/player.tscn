@@ -1,0 +1,330 @@
+[gd_scene load_steps=31 format=3 uid="uid://b1srp8i4xuuhj"]
+
+[ext_resource type="Script" path="res://scenes/player/player.gd" id="1_efeqj"]
+[ext_resource type="Script" path="res://scenes/player/playerFSM.gd" id="1_w48qn"]
+[ext_resource type="Texture2D" uid="uid://vwlwo37bgmd6" path="res://assets/Idle/Idle-1.png" id="2_m5crw"]
+[ext_resource type="Texture2D" uid="uid://dxx51axnwtal3" path="res://assets/Idle/Idle-2.png" id="3_1qrph"]
+[ext_resource type="Texture2D" uid="uid://cc27er30n54i1" path="res://assets/Idle/Idle-3.png" id="4_24c6p"]
+[ext_resource type="Texture2D" uid="uid://c2237s126ygqo" path="res://assets/Idle/Idle-4.png" id="5_c31uc"]
+[ext_resource type="Texture2D" uid="uid://g58aqnmneh3j" path="res://assets/Idle/Idle-5.png" id="6_2vw38"]
+[ext_resource type="Texture2D" uid="uid://b1q8es1niwu4e" path="res://assets/Idle/Idle-6.png" id="7_l4w20"]
+[ext_resource type="Texture2D" uid="uid://d0lqyl2cy5awg" path="res://assets/Idle/Idle-7.png" id="8_28fpv"]
+[ext_resource type="Texture2D" uid="uid://daeak32pc0g2u" path="res://assets/Idle/Idle-8.png" id="9_b3n2x"]
+[ext_resource type="Texture2D" uid="uid://bq84pb5jwe0fs" path="res://assets/Idle/Idle-9.png" id="10_a574o"]
+[ext_resource type="Texture2D" uid="uid://ubkw41iiws22" path="res://assets/Idle/Idle-10.png" id="11_0b8hi"]
+[ext_resource type="Texture2D" uid="uid://6vj1s4o1c7al" path="res://assets/jump/Jump.png" id="12_66llj"]
+[ext_resource type="Texture2D" uid="uid://cwvpd3kglvkl8" path="res://assets/Run/Run-1.png" id="12_hxusg"]
+[ext_resource type="Texture2D" uid="uid://bwtd1yt0p6bqr" path="res://assets/Run/Run-2.png" id="13_lbnug"]
+[ext_resource type="Texture2D" uid="uid://bhm4cxfnq24g0" path="res://assets/Run/Run-3.png" id="14_y13o2"]
+[ext_resource type="Texture2D" uid="uid://fva3011obs85" path="res://assets/Run/Run-4.png" id="15_jascq"]
+[ext_resource type="Texture2D" uid="uid://belwjp35c84eb" path="res://assets/Run/Run-5.png" id="16_ni8qw"]
+[ext_resource type="Texture2D" uid="uid://bhom3hs0ad2p7" path="res://assets/Run/Run-6.png" id="17_55tfo"]
+[ext_resource type="Texture2D" uid="uid://t4tuyp4cwaog" path="res://assets/Run/Run-7.png" id="18_0vido"]
+[ext_resource type="Texture2D" uid="uid://bpgb83ujsnd70" path="res://assets/Run/Run-8.png" id="19_k16hw"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_t6ll5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_m5crw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_1qrph")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_24c6p")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_c31uc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_2vw38")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_l4w20")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_28fpv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_b3n2x")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_a574o")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_0b8hi")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("12_66llj")
+}],
+"loop": true,
+"name": &"jump",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("12_hxusg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_lbnug")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_y13o2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_jascq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_ni8qw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_55tfo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_0vido")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_k16hw")
+}],
+"loop": true,
+"name": &"run",
+"speed": 16.0
+}]
+
+[sub_resource type="Animation" id="Animation_3q6kw"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"idle"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_s76gu"]
+resource_name = "fall"
+length = 0.1
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"jump"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_k3ksy"]
+resource_name = "idle"
+length = 1.00001
+loop_mode = 1
+step = 0.125
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"idle"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AnimatedSprite2D:offset")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_ed514"]
+resource_name = "jump"
+length = 0.1
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"update": 0,
+"values": []
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:animation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"jump"]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AnimatedSprite2D:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_om1fq"]
+resource_name = "move"
+length = 0.500006
+loop_mode = 1
+step = 0.0625
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"run"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.0625, 0.125, 0.1875, 0.25, 0.3125, 0.375, 0.4375),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AnimatedSprite2D:offset")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"update": 0,
+"values": []
+}
+
+[sub_resource type="Animation" id="Animation_2t3c7"]
+resource_name = "slide"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_h5fen"]
+_data = {
+"RESET": SubResource("Animation_3q6kw"),
+"fall": SubResource("Animation_s76gu"),
+"idle": SubResource("Animation_k3ksy"),
+"jump": SubResource("Animation_ed514"),
+"move": SubResource("Animation_om1fq"),
+"slide": SubResource("Animation_2t3c7")
+}
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_nm03e"]
+radius = 48.0
+height = 174.0
+
+[node name="Player" type="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 9
+script = ExtResource("1_efeqj")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.25, 0.25)
+sprite_frames = SubResource("SpriteFrames_t6ll5")
+animation = &"idle"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_h5fen")
+}
+
+[node name="FiniteStateMachine" type="Node" parent="."]
+script = ExtResource("1_w48qn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 23)
+shape = SubResource("CapsuleShape2D_nm03e")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+limit_smoothed = true
+drag_horizontal_enabled = true
+drag_vertical_enabled = true
+
+[node name="PickUp Slot" type="Node2D" parent="."]
+position = Vector2(0, -129)
+
+[node name="Pickup_CoolDown" type="Timer" parent="."]
+
+[connection signal="timeout" from="Pickup_CoolDown" to="." method="_on_pickup_cool_down_timeout"]

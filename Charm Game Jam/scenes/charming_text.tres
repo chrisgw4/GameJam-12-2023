@@ -1,0 +1,7 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://d3gg0on0b222c"]
+
+[ext_resource type="FontFile" uid="uid://crui3fpc8e7sx" path="res://assets/Kaph-Regular.ttf" id="1_y1cup"]
+
+[resource]
+default_font = ExtResource("1_y1cup")
+RichTextLabel/colors/default_color = Color(1, 0.278431, 0.494118, 1)

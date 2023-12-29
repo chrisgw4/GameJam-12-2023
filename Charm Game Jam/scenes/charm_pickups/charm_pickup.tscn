@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://boinb1ngjgvg"]
+
+[ext_resource type="Script" path="res://scenes/charm_pickups/charm_pickup.gd" id="1_epk8n"]
+
+[node name="CharmPickup" type="Node2D"]
+script = ExtResource("1_epk8n")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+
+[node name="PickUpRange" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PickUpRange"]

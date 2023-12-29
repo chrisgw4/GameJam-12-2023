@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://dq3jquxg1ttyu"]
+
+[ext_resource type="PackedScene" uid="uid://0n13n87bs4m7" path="res://scenes/shop_stalls/shop_stall.tscn" id="1_8ujct"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_r2n46"]
+size = Vector2(200, 200)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_1cmn1"]
+radius = 94.0479
+
+[node name="ShopStall_2" instance=ExtResource("1_8ujct")]
+
+[node name="CollisionShape2D" parent="." index="0"]
+shape = SubResource("RectangleShape2D_r2n46")
+one_way_collision = true
+
+[node name="CollisionShape2D" parent="BreakArea" index="0"]
+shape = SubResource("CircleShape2D_1cmn1")
