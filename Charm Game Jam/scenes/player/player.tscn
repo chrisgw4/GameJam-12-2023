@@ -391,16 +391,20 @@ position = Vector2(0, -129)
 [node name="Jump_Sound_Effect" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("27_tf6y8")
 pitch_scale = 0.62
+bus = &"Sound Effects"
 
 [node name="CharmingSoundEffect" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("28_rj0or")
+bus = &"Sound Effects"
 
 [node name="FoulSoundEffect" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("29_ix6iq")
-volume_db = -9.369
+volume_db = -15.928
+bus = &"Sound Effects"
 
 [node name="Collection_Sound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("30_jxrwm")
 volume_db = 6.321
+bus = &"Sound Effects"
 
 [connection signal="timeout" from="Pickup_CoolDown" to="." method="_on_pickup_cool_down_timeout"]

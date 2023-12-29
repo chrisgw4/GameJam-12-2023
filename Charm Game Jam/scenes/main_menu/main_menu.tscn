@@ -1,0 +1,65 @@
+[gd_scene load_steps=7 format=3 uid="uid://defdgkfdy8b4"]
+
+[ext_resource type="Texture2D" uid="uid://6e3qvv2n4bvi" path="res://assets/background/main-menu/game_background_1.png" id="1_ykaqt"]
+[ext_resource type="PackedScene" uid="uid://dvtpwfhupet2" path="res://scenes/Volume_Slider/Volume_Slider.tscn" id="2_8w6nq"]
+[ext_resource type="AudioStream" uid="uid://886mkminmpd2" path="res://assets/music/Main Menu Theme.mp3" id="3_y28rn"]
+[ext_resource type="FontFile" uid="uid://crui3fpc8e7sx" path="res://assets/Kaph-Regular.ttf" id="4_3etnw"]
+[ext_resource type="Script" path="res://scenes/main_menu/TextureButton.gd" id="5_wfe1c"]
+
+[sub_resource type="Theme" id="Theme_x034u"]
+default_font = ExtResource("4_3etnw")
+
+[node name="main_menu" type="Node2D"]
+
+[node name="GameBackground1" type="Sprite2D" parent="."]
+position = Vector2(578, 323)
+scale = Vector2(0.605556, 0.605556)
+texture = ExtResource("1_ykaqt")
+
+[node name="Music_Volume" parent="." instance=ExtResource("2_8w6nq")]
+offset_left = 373.0
+offset_top = 450.0
+offset_right = 826.0
+offset_bottom = 508.0
+bus_name = "Music"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_y28rn")
+autoplay = true
+bus = &"Music"
+
+[node name="SFX_Volume" parent="." instance=ExtResource("2_8w6nq")]
+offset_left = 373.0
+offset_top = 550.0
+offset_right = 826.0
+offset_bottom = 608.0
+bus_name = "Sound Effects"
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+offset_left = 507.0
+offset_top = 443.0
+offset_right = 706.0
+offset_bottom = 483.0
+theme = SubResource("Theme_x034u")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
+text = "Music Volume"
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="."]
+offset_left = 510.0
+offset_top = 547.0
+offset_right = 709.0
+offset_bottom = 587.0
+theme = SubResource("Theme_x034u")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
+text = "SFX Volume"
+
+[node name="TextureButton" type="TextureButton" parent="."]
+offset_left = 403.0
+offset_top = 335.0
+offset_right = 747.0
+offset_bottom = 417.0
+script = ExtResource("5_wfe1c")
+
+[connection signal="pressed" from="TextureButton" to="TextureButton" method="_on_pressed"]

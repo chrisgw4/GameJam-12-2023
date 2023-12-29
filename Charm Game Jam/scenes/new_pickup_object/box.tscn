@@ -50,6 +50,7 @@ shape = SubResource("CircleShape2D_mqmhv")
 
 [node name="Box_Sound_Effect" type="AudioStreamPlayer" parent="." index="6"]
 stream = ExtResource("3_3j0ih")
+bus = &"Sound Effects"
 
 [connection signal="body_entered" from="PickUpRange" to="." method="_on_pick_up_range_body_entered"]
 [connection signal="body_exited" from="PickUpRange" to="." method="_on_pick_up_range_body_exited"]
