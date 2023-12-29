@@ -1,16 +1,11 @@
-extends Node2D
+extends RichTextLabel
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	$Timer.start()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	pass
-
-
-func _on_pick_up_range_body_entered(body):
-	body.charm_progress += 1
-	queue_free()
+	text = str(int($Timer.time_left))

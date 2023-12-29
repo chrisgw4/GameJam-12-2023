@@ -11,6 +11,5 @@ func _process(delta):
 	pass
 
 
-func _on_pick_up_range_body_entered(body):
-	body.charm_progress += 1
-	queue_free()
+func _on_timer_timeout():
+	pass # GAME OVER

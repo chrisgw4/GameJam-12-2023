@@ -14,13 +14,20 @@ func _process(_delta):
 
 
 func _on_area_2d_body_entered(body):
-	print("Entered")
+	#print("Entered")
 	player = body
 	$Timer.start(10)
 	$Area2D.queue_free()
 
 
 func _on_timer_timeout():
-	if player:
-		player.charm_progress -= 10
+	$Cat.gravity_scale = 1
+	$Cat.get_node("CollisionShape2D").disabled = false
 	$TextureProgressBar.visible = false
+
+
+func _on_cat_death_plane_body_entered(body):
+	print("Cat died")
+	if player and not body.already_charmed:
+		player.charm_progress -= 10
+		body.already_charmed = true

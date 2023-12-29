@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://b1srp8i4xuuhj"]
+[gd_scene load_steps=37 format=3 uid="uid://b1srp8i4xuuhj"]
 
 [ext_resource type="Script" path="res://scenes/player/player.gd" id="1_efeqj"]
 [ext_resource type="Script" path="res://scenes/player/playerFSM.gd" id="1_w48qn"]
@@ -21,6 +21,11 @@
 [ext_resource type="Texture2D" uid="uid://bhom3hs0ad2p7" path="res://assets/Run/Run-6.png" id="17_55tfo"]
 [ext_resource type="Texture2D" uid="uid://t4tuyp4cwaog" path="res://assets/Run/Run-7.png" id="18_0vido"]
 [ext_resource type="Texture2D" uid="uid://bpgb83ujsnd70" path="res://assets/Run/Run-8.png" id="19_k16hw"]
+[ext_resource type="Texture2D" uid="uid://cenugw8y61noi" path="res://assets/skid/Skiddo_-1.png" id="21_3du26"]
+[ext_resource type="Texture2D" uid="uid://1487gcvum52d" path="res://assets/skid/Skiddo_-2.png" id="22_2gi8i"]
+[ext_resource type="Texture2D" uid="uid://bk23cvuj3sddc" path="res://assets/skid/Skiddo_-3.png" id="23_ngptq"]
+[ext_resource type="Texture2D" uid="uid://qsc4rc4v7r2a" path="res://assets/skid/Skiddo_-4.png" id="24_02288"]
+[ext_resource type="Texture2D" uid="uid://lrruf4r2d0tl" path="res://assets/skid/Skiddo_-5.png" id="25_v2ywy"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_t6ll5"]
 animations = [{
@@ -95,6 +100,26 @@ animations = [{
 "loop": true,
 "name": &"run",
 "speed": 16.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("21_3du26")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_2gi8i")
+}, {
+"duration": 1.0,
+"texture": ExtResource("23_ngptq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("24_02288")
+}, {
+"duration": 1.0,
+"texture": ExtResource("25_v2ywy")
+}],
+"loop": true,
+"name": &"skid",
+"speed": 13.0
 }]
 
 [sub_resource type="Animation" id="Animation_3q6kw"]
@@ -281,6 +306,36 @@ tracks/2/keys = {
 [sub_resource type="Animation" id="Animation_2t3c7"]
 resource_name = "slide"
 
+[sub_resource type="Animation" id="Animation_lnrqi"]
+resource_name = "skid"
+length = 0.3077
+loop_mode = 1
+step = 0.0666667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"skid"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.0666667, 0.133333, 0.2, 0.266667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_h5fen"]
 _data = {
 "RESET": SubResource("Animation_3q6kw"),
@@ -288,6 +343,7 @@ _data = {
 "idle": SubResource("Animation_k3ksy"),
 "jump": SubResource("Animation_ed514"),
 "move": SubResource("Animation_om1fq"),
+"skid": SubResource("Animation_lnrqi"),
 "slide": SubResource("Animation_2t3c7")
 }
 
@@ -297,7 +353,7 @@ height = 174.0
 
 [node name="Player" type="CharacterBody2D"]
 collision_layer = 2
-collision_mask = 9
+collision_mask = 17
 script = ExtResource("1_efeqj")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -318,6 +374,7 @@ position = Vector2(0, 23)
 shape = SubResource("CapsuleShape2D_nm03e")
 
 [node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(0.75, 0.75)
 limit_smoothed = true
 drag_horizontal_enabled = true
 drag_vertical_enabled = true

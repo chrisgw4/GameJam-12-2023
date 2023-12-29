@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://dbg2liwiwsw0h"]
+[gd_scene load_steps=8 format=3 uid="uid://dbg2liwiwsw0h"]
 
 [ext_resource type="PackedScene" uid="uid://ckxeprino2u42" path="res://scenes/new_pickup_object/pick_up_object.tscn" id="1_wyxed"]
+[ext_resource type="Script" path="res://scenes/new_pickup_object/CatDetector.gd" id="2_vldws"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_0gfst"]
 radius = 142.706
@@ -11,7 +12,15 @@ size = Vector2(80, 80)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fg8fh"]
 size = Vector2(80, 80)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_aoicw"]
+size = Vector2(80, 22)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_mqmhv"]
+radius = 33.541
+
 [node name="Box" instance=ExtResource("1_wyxed")]
+collision_layer = 16
+collision_mask = 17
 
 [node name="CollisionShape2D" parent="PickUpRange" index="0"]
 shape = SubResource("CircleShape2D_0gfst")
@@ -22,5 +31,22 @@ shape = SubResource("RectangleShape2D_qo8o5")
 [node name="CollisionShape2D2" parent="." index="3"]
 shape = SubResource("RectangleShape2D_fg8fh")
 
+[node name="CatCollision" type="StaticBody2D" parent="." index="4"]
+collision_layer = 8
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CatCollision" index="0"]
+position = Vector2(0, 29)
+shape = SubResource("RectangleShape2D_aoicw")
+
+[node name="CatDetector" type="Area2D" parent="." index="5"]
+collision_layer = 0
+collision_mask = 4
+script = ExtResource("2_vldws")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CatDetector" index="0"]
+shape = SubResource("CircleShape2D_mqmhv")
+
 [connection signal="body_entered" from="PickUpRange" to="." method="_on_pick_up_range_body_entered"]
 [connection signal="body_exited" from="PickUpRange" to="." method="_on_pick_up_range_body_exited"]
+[connection signal="body_entered" from="CatDetector" to="CatDetector" method="_on_body_entered"]

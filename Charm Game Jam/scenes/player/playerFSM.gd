@@ -8,6 +8,7 @@ func _ready():
 	_add_state("jump")
 	_add_state("fall")
 	_add_state("slide")
+	_add_state("skid")
 	
 	set_state(states['idle'])
 
@@ -27,9 +28,12 @@ func _get_transition() -> int:
 		return states["jump"]
 	
 	if not parent.is_on_floor():
-		return states["jump"]
+		return states["fall"]
 	
-	if parent.velocity.x > 10 :
+	if parent.skidding and abs(parent.velocity.x) > 7:
+		return states['skid']
+	
+	if parent.velocity.x > 10:
 		return states["move"]
 	
 	if parent.velocity.x < -10:

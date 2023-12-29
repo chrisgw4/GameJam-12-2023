@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://bi3jytm04v2jm"]
+
+[ext_resource type="Script" path="res://scenes/tree/cat.gd" id="1_qu15f"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wqiny"]
+size = Vector2(53, 51)
+
+[node name="Cat" type="RigidBody2D"]
+collision_layer = 4
+collision_mask = 9
+gravity_scale = 0.0
+script = ExtResource("1_qu15f")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_wqiny")
+disabled = true
+debug_color = Color(0.698039, 0.494118, 0, 0.419608)

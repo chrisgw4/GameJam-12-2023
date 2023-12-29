@@ -1,20 +1,24 @@
-[gd_scene load_steps=12 format=3 uid="uid://hflp6iqdm5ae"]
+[gd_scene load_steps=15 format=3 uid="uid://hflp6iqdm5ae"]
 
 [ext_resource type="PackedScene" uid="uid://b1srp8i4xuuhj" path="res://scenes/player/player.tscn" id="1_6yklp"]
+[ext_resource type="Script" path="res://scenes/game.gd" id="1_7woxh"]
 [ext_resource type="Script" path="res://scenes/UI.gd" id="1_550o8"]
 [ext_resource type="Texture2D" uid="uid://dla1bp83255n5" path="res://assets/Charm/Charm_Empty.PNG" id="1_a1s1d"]
 [ext_resource type="PackedScene" uid="uid://dbg2liwiwsw0h" path="res://scenes/new_pickup_object/box.tscn" id="2_de3ji"]
 [ext_resource type="Texture2D" uid="uid://bin7ukrh3dvsh" path="res://assets/Charm/Charm_Full.PNG" id="2_euybt"]
+[ext_resource type="Script" path="res://scenes/TimeLabel.gd" id="4_ajq20"]
 [ext_resource type="PackedScene" uid="uid://dq3jquxg1ttyu" path="res://scenes/shop_stalls/shop_stall_2.tscn" id="6_f47hv"]
 [ext_resource type="Texture2D" uid="uid://dwovy60b00noa" path="res://assets/background/layers/rocks_1.png" id="7_gbac6"]
 [ext_resource type="Texture2D" uid="uid://18s53s7o3end" path="res://assets/background/layers/sky.png" id="8_258hm"]
 [ext_resource type="Texture2D" uid="uid://dyplx8aokv1vd" path="res://assets/background/layers/rocks_2.png" id="9_3wa02"]
 [ext_resource type="PackedScene" uid="uid://bpgeeo1h8pj4o" path="res://scenes/tree/tree.tscn" id="10_4tros"]
+[ext_resource type="PackedScene" uid="uid://boinb1ngjgvg" path="res://scenes/charm_pickups/charm_pickup.tscn" id="11_60j8x"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lb22k"]
 size = Vector2(8164, 105)
 
 [node name="Game" type="Node2D"]
+script = ExtResource("1_7woxh")
 
 [node name="UI" type="CanvasLayer" parent="."]
 script = ExtResource("1_550o8")
@@ -24,6 +28,7 @@ layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
+metadata/_edit_use_anchors_ = true
 
 [node name="TextureProgressBar" type="TextureProgressBar" parent="UI/Control"]
 layout_mode = 0
@@ -36,6 +41,20 @@ value = 50.0
 fill_mode = 3
 texture_under = ExtResource("1_a1s1d")
 texture_progress = ExtResource("2_euybt")
+metadata/_edit_use_anchors_ = true
+
+[node name="TimeLabel" type="RichTextLabel" parent="UI/Control"]
+layout_mode = 0
+offset_left = 7.0
+offset_top = 9.0
+offset_right = 319.0
+offset_bottom = 125.0
+theme_override_font_sizes/normal_font_size = 32
+text = "500"
+script = ExtResource("4_ajq20")
+
+[node name="Timer" type="Timer" parent="UI/Control/TimeLabel"]
+wait_time = 300.0
 
 [node name="Player" parent="." instance=ExtResource("1_6yklp")]
 position = Vector2(0, -47)
@@ -72,7 +91,7 @@ texture = ExtResource("8_258hm")
 motion_mirroring = Vector2(2400, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
-position = Vector2(0, -666)
+position = Vector2(-736, -1133)
 scale = Vector2(1.25, 1.25)
 texture = ExtResource("7_gbac6")
 centered = false
@@ -83,8 +102,52 @@ motion_mirroring = Vector2(2400, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2"]
 texture_repeat = 2
-position = Vector2(4, 2)
+position = Vector2(-840, -446)
 scale = Vector2(1.25, 1.25)
 texture = ExtResource("9_3wa02")
 centered = false
 region_rect = Rect2(1920, 1080, 100, 100)
+
+[node name="CharmPickup" parent="." instance=ExtResource("11_60j8x")]
+position = Vector2(215, 74)
+
+[node name="CharmPickup2" parent="." instance=ExtResource("11_60j8x")]
+position = Vector2(324, 76)
+
+[node name="CharmPickup3" parent="." instance=ExtResource("11_60j8x")]
+position = Vector2(455, 75)
+
+[node name="CharmPickup4" parent="." instance=ExtResource("11_60j8x")]
+position = Vector2(578, 78)
+
+[node name="CharmPickup5" parent="." instance=ExtResource("11_60j8x")]
+position = Vector2(692, 79)
+
+[node name="CharmPickup6" parent="." instance=ExtResource("11_60j8x")]
+position = Vector2(784, 67)
+
+[node name="CharmPickup7" parent="." instance=ExtResource("11_60j8x")]
+position = Vector2(664, -12)
+
+[node name="CharmPickup8" parent="." instance=ExtResource("11_60j8x")]
+position = Vector2(491, -22)
+
+[node name="CharmPickup9" parent="." instance=ExtResource("11_60j8x")]
+position = Vector2(313, -35)
+
+[node name="CharmPickup10" parent="." instance=ExtResource("11_60j8x")]
+position = Vector2(326, -149)
+
+[node name="CharmPickup11" parent="." instance=ExtResource("11_60j8x")]
+position = Vector2(469, -102)
+
+[node name="CharmPickup12" parent="." instance=ExtResource("11_60j8x")]
+position = Vector2(527, -167)
+
+[node name="CharmPickup13" parent="." instance=ExtResource("11_60j8x")]
+position = Vector2(365, -315)
+
+[node name="CharmPickup14" parent="." instance=ExtResource("11_60j8x")]
+position = Vector2(365, -315)
+
+[connection signal="timeout" from="UI/Control/TimeLabel/Timer" to="." method="_on_timer_timeout"]

@@ -26,11 +26,17 @@ var charm_progress = 50:
 			temp.set_type("foul")
 			get_tree().current_scene.add_child(temp)
 			temp.global_position = global_position + Vector2(20,0)
-		else:
+		elif new_val - charm_progress > 1:
 			var temp = charming_foul_text.instantiate()
 			temp.set_type("charming")
 			get_tree().current_scene.add_child(temp)
 			temp.global_position = global_position+ Vector2(20,0)
+		else:
+			var temp = charming_foul_text.instantiate()
+			temp.set_type("1")
+			get_tree().current_scene.add_child(temp)
+			temp.global_position = global_position+ Vector2(20,0)
+			
 			
 		charm_progress = new_val
 		if charm_progress < 0:
@@ -78,7 +84,7 @@ func _input(_event):
 			emit_signal("pick_up_pressed")
 		else:
 			emit_signal("drop_pressed")
-		pick_up_cooldown.start(0.25)
+		pick_up_cooldown.start(0.15)
 		stop_pickup = true
 
 
