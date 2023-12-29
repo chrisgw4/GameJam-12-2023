@@ -1,0 +1,55 @@
+[gd_scene load_steps=6 format=3 uid="uid://de7hk73sbyua4"]
+
+[ext_resource type="PackedScene" uid="uid://dbg2liwiwsw0h" path="res://scenes/new_pickup_object/box.tscn" id="1_3x8l0"]
+[ext_resource type="Script" path="res://scenes/tutorial.gd" id="1_5erc0"]
+[ext_resource type="PackedScene" uid="uid://bpgeeo1h8pj4o" path="res://scenes/tree/tree.tscn" id="2_7gdqi"]
+[ext_resource type="PackedScene" uid="uid://dq3jquxg1ttyu" path="res://scenes/shop_stalls/shop_stall_2.tscn" id="3_ntrvn"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8s1jy"]
+size = Vector2(40, 685)
+
+[node name="Tutorial" type="Node2D"]
+script = ExtResource("1_5erc0")
+
+[node name="Box" parent="." instance=ExtResource("1_3x8l0")]
+position = Vector2(148, -40)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+offset_left = 192.0
+offset_top = -198.0
+offset_right = 393.0
+offset_bottom = -124.0
+theme_override_font_sizes/normal_font_size = 24
+text = "Press \"E\" to pick up the box!"
+
+[node name="Tree" parent="." instance=ExtResource("2_7gdqi")]
+position = Vector2(849, 0)
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="."]
+offset_left = 915.0
+offset_top = -187.0
+offset_right = 1232.0
+offset_bottom = -108.0
+theme_override_font_sizes/normal_font_size = 24
+text = "Place the box \"E\" beneath the cat to save it!"
+
+[node name="ShopStall_2" parent="." instance=ExtResource("3_ntrvn")]
+position = Vector2(1689, -100)
+
+[node name="RichTextLabel3" type="RichTextLabel" parent="."]
+offset_left = 1770.0
+offset_top = -291.0
+offset_right = 2043.0
+offset_bottom = -210.0
+theme_override_font_sizes/normal_font_size = 24
+text = "Jump over the stalls to avoid losing charm!"
+
+[node name="EndTutorial" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EndTutorial"]
+position = Vector2(2186, -342.5)
+shape = SubResource("RectangleShape2D_8s1jy")
+
+[connection signal="body_entered" from="EndTutorial" to="." method="_on_end_tutorial_body_entered"]

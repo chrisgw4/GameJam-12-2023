@@ -1,22 +1,16 @@
-[gd_scene load_steps=16 format=3 uid="uid://hflp6iqdm5ae"]
+[gd_scene load_steps=12 format=3 uid="uid://hflp6iqdm5ae"]
 
 [ext_resource type="PackedScene" uid="uid://b1srp8i4xuuhj" path="res://scenes/player/player.tscn" id="1_6yklp"]
 [ext_resource type="Script" path="res://scenes/game.gd" id="1_7woxh"]
 [ext_resource type="Script" path="res://scenes/UI.gd" id="1_550o8"]
 [ext_resource type="Texture2D" uid="uid://dla1bp83255n5" path="res://assets/Charm/Charm_Empty.PNG" id="1_a1s1d"]
-[ext_resource type="PackedScene" uid="uid://dbg2liwiwsw0h" path="res://scenes/new_pickup_object/box.tscn" id="2_de3ji"]
 [ext_resource type="Texture2D" uid="uid://bin7ukrh3dvsh" path="res://assets/Charm/Charm_Full.PNG" id="2_euybt"]
 [ext_resource type="Script" path="res://scenes/TimeLabel.gd" id="4_ajq20"]
-[ext_resource type="PackedScene" uid="uid://dq3jquxg1ttyu" path="res://scenes/shop_stalls/shop_stall_2.tscn" id="6_f47hv"]
 [ext_resource type="Texture2D" uid="uid://dwovy60b00noa" path="res://assets/background/layers/rocks_1.png" id="7_gbac6"]
 [ext_resource type="Texture2D" uid="uid://18s53s7o3end" path="res://assets/background/layers/sky.png" id="8_258hm"]
 [ext_resource type="Texture2D" uid="uid://dyplx8aokv1vd" path="res://assets/background/layers/rocks_2.png" id="9_3wa02"]
-[ext_resource type="PackedScene" uid="uid://bpgeeo1h8pj4o" path="res://scenes/tree/tree.tscn" id="10_4tros"]
-[ext_resource type="PackedScene" uid="uid://boinb1ngjgvg" path="res://scenes/charm_pickups/charm_pickup.tscn" id="11_60j8x"]
+[ext_resource type="PackedScene" uid="uid://dwk04klx5n542" path="res://scenes/levels/level.tscn" id="11_caly8"]
 [ext_resource type="AudioStream" uid="uid://fioslm8u8ey" path="res://assets/music/Level Music.mp3" id="14_t38eb"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_lb22k"]
-size = Vector2(8164, 105)
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_7woxh")
@@ -60,27 +54,6 @@ wait_time = 300.0
 [node name="Player" parent="." instance=ExtResource("1_6yklp")]
 position = Vector2(0, -47)
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(2176, 202.5)
-shape = SubResource("RectangleShape2D_lb22k")
-
-[node name="Box" parent="." instance=ExtResource("2_de3ji")]
-position = Vector2(356, -15)
-
-[node name="Box2" parent="." instance=ExtResource("2_de3ji")]
-position = Vector2(821, -345)
-
-[node name="ShopStall_2" parent="." instance=ExtResource("6_f47hv")]
-position = Vector2(1293, 50)
-
-[node name="ShopStall_3" parent="." instance=ExtResource("6_f47hv")]
-position = Vector2(1621, 50)
-
-[node name="Tree" parent="." instance=ExtResource("10_4tros")]
-position = Vector2(2065, 148)
-
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground"]
@@ -109,52 +82,13 @@ texture = ExtResource("9_3wa02")
 centered = false
 region_rect = Rect2(1920, 1080, 100, 100)
 
-[node name="CharmPickup" parent="." instance=ExtResource("11_60j8x")]
-position = Vector2(215, 74)
-
-[node name="CharmPickup2" parent="." instance=ExtResource("11_60j8x")]
-position = Vector2(324, 76)
-
-[node name="CharmPickup3" parent="." instance=ExtResource("11_60j8x")]
-position = Vector2(455, 75)
-
-[node name="CharmPickup4" parent="." instance=ExtResource("11_60j8x")]
-position = Vector2(578, 78)
-
-[node name="CharmPickup5" parent="." instance=ExtResource("11_60j8x")]
-position = Vector2(692, 79)
-
-[node name="CharmPickup6" parent="." instance=ExtResource("11_60j8x")]
-position = Vector2(784, 67)
-
-[node name="CharmPickup7" parent="." instance=ExtResource("11_60j8x")]
-position = Vector2(664, -12)
-
-[node name="CharmPickup8" parent="." instance=ExtResource("11_60j8x")]
-position = Vector2(491, -22)
-
-[node name="CharmPickup9" parent="." instance=ExtResource("11_60j8x")]
-position = Vector2(313, -35)
-
-[node name="CharmPickup10" parent="." instance=ExtResource("11_60j8x")]
-position = Vector2(326, -149)
-
-[node name="CharmPickup11" parent="." instance=ExtResource("11_60j8x")]
-position = Vector2(469, -102)
-
-[node name="CharmPickup12" parent="." instance=ExtResource("11_60j8x")]
-position = Vector2(527, -167)
-
-[node name="CharmPickup13" parent="." instance=ExtResource("11_60j8x")]
-position = Vector2(365, -315)
-
-[node name="CharmPickup14" parent="." instance=ExtResource("11_60j8x")]
-position = Vector2(365, -315)
-
 [node name="Level_Music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("14_t38eb")
 volume_db = -15.4
 autoplay = true
 bus = &"Music"
+
+[node name="Level" parent="." instance=ExtResource("11_caly8")]
+position = Vector2(404, -10)
 
 [connection signal="timeout" from="UI/Control/TimeLabel/Timer" to="." method="_on_timer_timeout"]

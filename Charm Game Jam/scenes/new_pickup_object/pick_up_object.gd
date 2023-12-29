@@ -28,6 +28,7 @@ func _physics_process(_delta):
 		global_position = global_position.lerp(player.pickup_slot.global_position, 0.15)
 		if global_position.distance_to(player.pickup_slot.global_position) < 0.25:
 			global_position = player.pickup_slot.global_position
+			move_to_pickup_slot = false
 
 func _on_pick_up_range_body_entered(body):
 	
@@ -40,9 +41,8 @@ func _on_pick_up_range_body_entered(body):
 
 
 func _on_pick_up_range_body_exited(_body):
-	#print("out of range")
 	if not picked_up and player:
-		player.holding_object = false
+		
 		player.disconnect("pick_up_pressed", _pick_me_up)
 		player.disconnect("drop_pressed", _drop_me_down)
 		player = null
@@ -78,7 +78,7 @@ func _drop_me_down():
 	cat_detector.monitorable = true
 	cat_detector_collision.disabled = false
 	cat_collision.disabled = false
-	
+	player.holding_object = false
 	
 	
 	reparent(get_tree().current_scene)

@@ -27,13 +27,13 @@ var charm_progress = 50:
 			temp.set_type("foul")
 			get_tree().current_scene.add_child(temp)
 			temp.global_position = global_position + Vector2(20,0)
-		elif new_val - charm_progress > 1:
+		elif new_val - charm_progress > 1: # gained charm
 			$CharmingSoundEffect.play()
 			var temp = charming_foul_text.instantiate()
 			temp.set_type("charming")
 			get_tree().current_scene.add_child(temp)
 			temp.global_position = global_position+ Vector2(20,0)
-		else:
+		else: # collect item
 			$Collection_Sound.play()
 			var temp = charming_foul_text.instantiate()
 			temp.set_type("1")

@@ -1,0 +1,116 @@
+[gd_scene load_steps=11 format=3 uid="uid://dwk04klx5n542"]
+
+[ext_resource type="PackedScene" uid="uid://dbg2liwiwsw0h" path="res://scenes/new_pickup_object/box.tscn" id="1_8rip3"]
+[ext_resource type="PackedScene" uid="uid://dq3jquxg1ttyu" path="res://scenes/shop_stalls/shop_stall_2.tscn" id="2_2dfgw"]
+[ext_resource type="PackedScene" uid="uid://bpgeeo1h8pj4o" path="res://scenes/tree/tree.tscn" id="3_th61d"]
+[ext_resource type="Texture2D" uid="uid://18s53s7o3end" path="res://assets/background/layers/sky.png" id="4_qgph1"]
+[ext_resource type="Texture2D" uid="uid://dwovy60b00noa" path="res://assets/background/layers/rocks_1.png" id="5_rinxq"]
+[ext_resource type="Texture2D" uid="uid://dyplx8aokv1vd" path="res://assets/background/layers/rocks_2.png" id="6_u1cm2"]
+[ext_resource type="PackedScene" uid="uid://boinb1ngjgvg" path="res://scenes/charm_pickups/charm_pickup.tscn" id="7_4pnq0"]
+[ext_resource type="AudioStream" uid="uid://fioslm8u8ey" path="res://assets/music/Level Music.mp3" id="8_nw4ld"]
+[ext_resource type="PackedScene" uid="uid://de7hk73sbyua4" path="res://scenes/tutorial.tscn" id="9_k34ji"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b2cac"]
+size = Vector2(8164, 105)
+
+[node name="Level" type="Node2D"]
+
+[node name="Tutorial" parent="." instance=ExtResource("9_k34ji")]
+position = Vector2(254, 149)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(2176, 202.5)
+shape = SubResource("RectangleShape2D_b2cac")
+
+[node name="Box" parent="." instance=ExtResource("1_8rip3")]
+position = Vector2(3046, -13)
+
+[node name="Box2" parent="." instance=ExtResource("1_8rip3")]
+position = Vector2(3511, -343)
+
+[node name="ShopStall_2" parent="." instance=ExtResource("2_2dfgw")]
+position = Vector2(3983, 52)
+
+[node name="ShopStall_3" parent="." instance=ExtResource("2_2dfgw")]
+position = Vector2(4311, 52)
+
+[node name="Tree" parent="." instance=ExtResource("3_th61d")]
+position = Vector2(4755, 150)
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground"]
+position = Vector2(1161, 653)
+scale = Vector2(1.27188, 1.30185)
+texture = ExtResource("4_qgph1")
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_mirroring = Vector2(2400, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+position = Vector2(-736, -1133)
+scale = Vector2(1.25, 1.25)
+texture = ExtResource("5_rinxq")
+centered = false
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground"]
+position = Vector2(-2, -664)
+motion_mirroring = Vector2(2400, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2"]
+texture_repeat = 2
+position = Vector2(-412, -483)
+scale = Vector2(1.25, 1.25)
+texture = ExtResource("6_u1cm2")
+centered = false
+region_rect = Rect2(1920, 1080, 100, 100)
+
+[node name="CharmPickup" parent="." instance=ExtResource("7_4pnq0")]
+position = Vector2(2845, 69)
+
+[node name="CharmPickup2" parent="." instance=ExtResource("7_4pnq0")]
+position = Vector2(2954, 71)
+
+[node name="CharmPickup3" parent="." instance=ExtResource("7_4pnq0")]
+position = Vector2(3085, 70)
+
+[node name="CharmPickup4" parent="." instance=ExtResource("7_4pnq0")]
+position = Vector2(3208, 73)
+
+[node name="CharmPickup5" parent="." instance=ExtResource("7_4pnq0")]
+position = Vector2(3322, 74)
+
+[node name="CharmPickup6" parent="." instance=ExtResource("7_4pnq0")]
+position = Vector2(3414, 62)
+
+[node name="CharmPickup7" parent="." instance=ExtResource("7_4pnq0")]
+position = Vector2(3294, -17)
+
+[node name="CharmPickup8" parent="." instance=ExtResource("7_4pnq0")]
+position = Vector2(3121, -27)
+
+[node name="CharmPickup9" parent="." instance=ExtResource("7_4pnq0")]
+position = Vector2(2943, -40)
+
+[node name="CharmPickup10" parent="." instance=ExtResource("7_4pnq0")]
+position = Vector2(2956, -154)
+
+[node name="CharmPickup11" parent="." instance=ExtResource("7_4pnq0")]
+position = Vector2(3099, -107)
+
+[node name="CharmPickup12" parent="." instance=ExtResource("7_4pnq0")]
+position = Vector2(3157, -172)
+
+[node name="CharmPickup13" parent="." instance=ExtResource("7_4pnq0")]
+position = Vector2(2995, -320)
+
+[node name="CharmPickup14" parent="." instance=ExtResource("7_4pnq0")]
+position = Vector2(2995, -320)
+
+[node name="Level_Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_nw4ld")
+volume_db = -10.24
+autoplay = true
+bus = &"Music"
