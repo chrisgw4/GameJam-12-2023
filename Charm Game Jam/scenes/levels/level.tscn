@@ -21,7 +21,7 @@ size = Vector2(247, 829)
 
 [node name="Platform" parent="Platform" instance=ExtResource("1_s4biy")]
 position = Vector2(8000, 169)
-scale = Vector2(100, 1.217)
+scale = Vector2(120.385, 1.217)
 
 [node name="Platform2" parent="Platform" instance=ExtResource("1_s4biy")]
 position = Vector2(7712, -120)

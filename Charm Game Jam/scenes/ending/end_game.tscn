@@ -1,0 +1,62 @@
+[gd_scene load_steps=8 format=3 uid="uid://b8xkby652v157"]
+
+[ext_resource type="Texture2D" uid="uid://dla1bp83255n5" path="res://assets/Charm/Charm_Empty.PNG" id="1_6dne4"]
+[ext_resource type="Script" path="res://scenes/ending/end_game.gd" id="1_sqp0l"]
+[ext_resource type="Texture2D" uid="uid://bin7ukrh3dvsh" path="res://assets/Charm/Charm_Full.PNG" id="2_rcvk3"]
+[ext_resource type="Texture2D" uid="uid://6vj1s4o1c7al" path="res://assets/jump/Jump.png" id="4_lh76h"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6etlp"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_lh76h")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_rubco"]
+radius = 41.0
+height = 178.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2q0t2"]
+size = Vector2(481.5, 277)
+
+[node name="EndGame" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_sqp0l")
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="."]
+layout_mode = 0
+offset_left = 317.0
+offset_top = 66.0
+offset_right = 2365.0
+offset_bottom = 2114.0
+scale = Vector2(0.25, 0.25)
+step = 0.01
+fill_mode = 3
+texture_under = ExtResource("1_6dne4")
+texture_progress = ExtResource("2_rcvk3")
+
+[node name="Princess" type="RigidBody2D" parent="."]
+position = Vector2(-363, 489)
+gravity_scale = 0.0
+linear_velocity = Vector2(100, 0)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Princess"]
+scale = Vector2(0.25, 0.25)
+sprite_frames = SubResource("SpriteFrames_6etlp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Princess"]
+shape = SubResource("CapsuleShape2D_rubco")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-23.75, 453)
+shape = SubResource("RectangleShape2D_2q0t2")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

@@ -69,42 +69,45 @@ var stop_pickup:bool = false
 var sliding:bool = false
 @export var start_sliding:bool = true
 
+var stop_everything:bool = false
+
 
 func _physics_process(delta):
-	# Add the gravity.
-	if not is_on_floor():
-		velocity.y += gravity * delta
-
-	# Handle jump.
-	if Input.is_action_just_pressed("jump") and is_on_floor():
-		velocity.y = JUMP_VELOCITY
-		$Jump_Sound_Effect.play()
-		sliding = false
-	
-	
-
-	# Get the input direction and handle the movement/deceleration.
-	# As good practice, you should replace UI actions with custom gameplay actions.
-	if not sliding:
-		var direction = Input.get_axis("move_left", "move_right")
-		if direction:
-			skidding = false
-			velocity.x = direction * SPEED
-		else:
-			skidding = true
-			velocity.x = lerpf(velocity.x, 0, FRICTION)#move_toward(velocity.x, 0, SPEED)
+	if not stop_everything:
+		# Add the gravity.
 		
-		if Input.is_action_just_pressed("slide"):
-			sliding = true
-			if is_on_floor():
-				velocity.x *= 1.5
-				if abs(velocity.x) >= 10:
-					$Slide_Sound.play()
-	elif abs(velocity.x) < 100:
-		sliding = false
-	else:
-		velocity.x = lerpf(velocity.x, 0, FRICTION*0.25)#move_toward(velocity.x, 0, SPEED)
 
+		# Handle jump.
+		if Input.is_action_just_pressed("jump") and is_on_floor():
+			velocity.y = JUMP_VELOCITY
+			$Jump_Sound_Effect.play()
+			sliding = false
+		
+		
+
+		# Get the input direction and handle the movement/deceleration.
+		# As good practice, you should replace UI actions with custom gameplay actions.
+		if not sliding:
+			var direction = Input.get_axis("move_left", "move_right")
+			if direction:
+				skidding = false
+				velocity.x = direction * SPEED
+			else:
+				skidding = true
+				velocity.x = lerpf(velocity.x, 0, FRICTION)#move_toward(velocity.x, 0, SPEED)
+			
+			if Input.is_action_just_pressed("slide"):
+				sliding = true
+				if is_on_floor():
+					velocity.x *= 1.5
+					if abs(velocity.x) >= 10:
+						$Slide_Sound.play()
+		elif abs(velocity.x) < 100:
+			sliding = false
+		else:
+			velocity.x = lerpf(velocity.x, 0, FRICTION*0.25)#move_toward(velocity.x, 0, SPEED)
+	if not is_on_floor():
+			velocity.y += gravity * delta
 	move_and_slide()
 
 
@@ -120,3 +123,15 @@ func _input(_event):
 
 func _on_pickup_cool_down_timeout():
 	stop_pickup = false
+
+
+func _gray_out() -> void:
+	print("Troll")
+	var tween = create_tween()
+	$ColorRect.visible = true
+	
+	$AnimationPlayer2.play("color")
+	get_tree().current_scene.get_node("UI/Control").visible = false
+	
+	
+	

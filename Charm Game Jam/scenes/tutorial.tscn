@@ -16,12 +16,12 @@ script = ExtResource("1_5erc0")
 position = Vector2(148, -40)
 
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
-offset_left = 104.0
-offset_top = -227.0
-offset_right = 390.0
-offset_bottom = -85.0
+offset_left = 192.0
+offset_top = -198.0
+offset_right = 393.0
+offset_bottom = -124.0
 theme_override_font_sizes/normal_font_size = 24
-text = "Press \"E\" to pick up the box! You can use these to reach higher places!"
+text = "Press \"E\" to pick up the box!"
 
 [node name="Tree" parent="." instance=ExtResource("2_7gdqi")]
 position = Vector2(849, 0)
@@ -32,7 +32,7 @@ offset_top = -187.0
 offset_right = 1232.0
 offset_bottom = -108.0
 theme_override_font_sizes/normal_font_size = 24
-text = "Place the box \"E\" beneath the cat to save it! "
+text = "Place the box \"E\" beneath the cat to save it!"
 
 [node name="ShopStall_2" parent="." instance=ExtResource("3_ntrvn")]
 position = Vector2(1689, -96)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://hflp6iqdm5ae"]
+[gd_scene load_steps=17 format=3 uid="uid://hflp6iqdm5ae"]
 
 [ext_resource type="PackedScene" uid="uid://b1srp8i4xuuhj" path="res://scenes/player/player.tscn" id="1_6yklp"]
 [ext_resource type="Script" path="res://scenes/game.gd" id="1_7woxh"]
@@ -11,7 +11,44 @@
 [ext_resource type="Texture2D" uid="uid://rsqffs3uon7k" path="res://assets/background/bg1.png" id="8_dddo4"]
 [ext_resource type="Texture2D" uid="uid://dyplx8aokv1vd" path="res://assets/background/layers/rocks_2.png" id="9_3wa02"]
 [ext_resource type="PackedScene" uid="uid://dwk04klx5n542" path="res://scenes/levels/level.tscn" id="11_caly8"]
+[ext_resource type="PackedScene" uid="uid://ce8p7eqhl2gu7" path="res://scenes/coliseum/coliseum.tscn" id="13_35mxa"]
 [ext_resource type="AudioStream" uid="uid://fioslm8u8ey" path="res://assets/music/Level Music.mp3" id="14_t38eb"]
+
+[sub_resource type="Animation" id="Animation_185qp"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.211765, 0.211765, 0.211765, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_2vx6d"]
+resource_name = "color"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0.211765, 0.211765, 0.211765, 0), Color(0.212, 0.212, 0.212, 0.9)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_4hmme"]
+_data = {
+"RESET": SubResource("Animation_185qp"),
+"color": SubResource("Animation_2vx6d")
+}
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_7woxh")
@@ -49,8 +86,32 @@ theme_override_font_sizes/normal_font_size = 32
 text = "500"
 script = ExtResource("4_ajq20")
 
+[node name="Timer" type="Timer" parent="UI/Control/TimeLabel"]
+wait_time = 300.0
+
 [node name="Player" parent="." instance=ExtResource("1_6yklp")]
-position = Vector2(0, -47)
+position = Vector2(2, 2)
+
+[node name="ColorRect" type="ColorRect" parent="Player"]
+z_index = 2
+z_as_relative = false
+offset_left = -2994.0
+offset_top = -1703.0
+offset_right = 2775.0
+offset_bottom = 1509.0
+color = Color(0.211765, 0.211765, 0.211765, 0)
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+zoom = Vector2(0.75, 0.75)
+limit_right = 19257
+limit_bottom = 175
+drag_horizontal_enabled = true
+drag_vertical_enabled = true
+
+[node name="AnimationPlayer2" type="AnimationPlayer" parent="Player"]
+libraries = {
+"": SubResource("AnimationLibrary_4hmme")
+}
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 
@@ -96,3 +157,11 @@ bus = &"Music"
 
 [node name="Level" parent="." instance=ExtResource("11_caly8")]
 position = Vector2(404, -10)
+
+[node name="Node2D" type="Node2D" parent="."]
+position = Vector2(15000, -285)
+
+[node name="Coliseum" parent="." instance=ExtResource("13_35mxa")]
+position = Vector2(18721, -811)
+
+[connection signal="timeout" from="UI/Control/TimeLabel/Timer" to="." method="_on_timer_timeout"]

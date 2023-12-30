@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://defdgkfdy8b4"]
+[gd_scene load_steps=9 format=3 uid="uid://defdgkfdy8b4"]
 
 [ext_resource type="Texture2D" uid="uid://6e3qvv2n4bvi" path="res://assets/background/main-menu/game_background_1.png" id="1_ykaqt"]
 [ext_resource type="PackedScene" uid="uid://dvtpwfhupet2" path="res://scenes/Volume_Slider/Volume_Slider.tscn" id="2_8w6nq"]
@@ -6,6 +6,7 @@
 [ext_resource type="FontFile" uid="uid://crui3fpc8e7sx" path="res://assets/Kaph-Regular.ttf" id="4_3etnw"]
 [ext_resource type="Texture2D" uid="uid://b0lngtygga27l" path="res://assets/background/main-menu/start.png" id="5_2dknh"]
 [ext_resource type="Script" path="res://scenes/main_menu/TextureButton.gd" id="5_wfe1c"]
+[ext_resource type="Texture2D" uid="uid://d6mpe4wk4l61" path="res://assets/True Logo.png" id="7_o6svb"]
 
 [sub_resource type="Theme" id="Theme_x034u"]
 default_font = ExtResource("4_3etnw")
@@ -64,5 +65,10 @@ offset_bottom = 709.0
 scale = Vector2(0.301988, 0.301988)
 texture_normal = ExtResource("5_2dknh")
 script = ExtResource("5_wfe1c")
+
+[node name="TrueLogo" type="Sprite2D" parent="."]
+position = Vector2(579, 164)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("7_o6svb")
 
 [connection signal="pressed" from="TextureButton" to="TextureButton" method="_on_pressed"]
