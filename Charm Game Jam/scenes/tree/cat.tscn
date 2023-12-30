@@ -372,7 +372,7 @@ animations = [{
 
 [node name="Cat" type="RigidBody2D"]
 collision_layer = 4
-collision_mask = 9
+collision_mask = 72
 gravity_scale = 0.0
 script = ExtResource("1_qu15f")
 

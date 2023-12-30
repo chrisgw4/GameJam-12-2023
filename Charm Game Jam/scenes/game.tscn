@@ -49,9 +49,6 @@ theme_override_font_sizes/normal_font_size = 32
 text = "500"
 script = ExtResource("4_ajq20")
 
-[node name="Timer" type="Timer" parent="UI/Control/TimeLabel"]
-wait_time = 300.0
-
 [node name="Player" parent="." instance=ExtResource("1_6yklp")]
 position = Vector2(0, -47)
 
@@ -99,5 +96,3 @@ bus = &"Music"
 
 [node name="Level" parent="." instance=ExtResource("11_caly8")]
 position = Vector2(404, -10)
-
-[connection signal="timeout" from="UI/Control/TimeLabel/Timer" to="." method="_on_timer_timeout"]
