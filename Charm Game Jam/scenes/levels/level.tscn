@@ -1,17 +1,15 @@
-[gd_scene load_steps=11 format=3 uid="uid://dwk04klx5n542"]
+[gd_scene load_steps=9 format=3 uid="uid://dwk04klx5n542"]
 
 [ext_resource type="PackedScene" uid="uid://dbg2liwiwsw0h" path="res://scenes/new_pickup_object/box.tscn" id="1_8rip3"]
 [ext_resource type="PackedScene" uid="uid://dq3jquxg1ttyu" path="res://scenes/shop_stalls/shop_stall_2.tscn" id="2_2dfgw"]
 [ext_resource type="PackedScene" uid="uid://bpgeeo1h8pj4o" path="res://scenes/tree/tree.tscn" id="3_th61d"]
-[ext_resource type="Texture2D" uid="uid://18s53s7o3end" path="res://assets/background/layers/sky.png" id="4_qgph1"]
-[ext_resource type="Texture2D" uid="uid://dwovy60b00noa" path="res://assets/background/layers/rocks_1.png" id="5_rinxq"]
-[ext_resource type="Texture2D" uid="uid://dyplx8aokv1vd" path="res://assets/background/layers/rocks_2.png" id="6_u1cm2"]
 [ext_resource type="PackedScene" uid="uid://boinb1ngjgvg" path="res://scenes/charm_pickups/charm_pickup.tscn" id="7_4pnq0"]
 [ext_resource type="AudioStream" uid="uid://fioslm8u8ey" path="res://assets/music/Level Music.mp3" id="8_nw4ld"]
 [ext_resource type="PackedScene" uid="uid://de7hk73sbyua4" path="res://scenes/tutorial.tscn" id="9_k34ji"]
+[ext_resource type="PackedScene" uid="uid://3u6q2kawr5nc" path="res://scenes/slide_obstacles/slide_obstacle_1.tscn" id="10_a7hb4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_b2cac"]
-size = Vector2(8164, 105)
+size = Vector2(9757, 105)
 
 [node name="Level" type="Node2D"]
 
@@ -21,192 +19,125 @@ position = Vector2(254, 149)
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(2176, 202.5)
+position = Vector2(3633.5, 202.5)
 shape = SubResource("RectangleShape2D_b2cac")
-
-[node name="Box" parent="." instance=ExtResource("1_8rip3")]
-position = Vector2(3668, -13)
-
-[node name="Box2" parent="." instance=ExtResource("1_8rip3")]
-position = Vector2(4133, -343)
-
-[node name="ShopStall_2" parent="." instance=ExtResource("2_2dfgw")]
-position = Vector2(4605, 52)
-
-[node name="ShopStall_3" parent="." instance=ExtResource("2_2dfgw")]
-position = Vector2(4933, 52)
-
-[node name="Tree" parent="." instance=ExtResource("3_th61d")]
-position = Vector2(5377, 150)
-
-[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
-
-[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground"]
-position = Vector2(1161, 653)
-scale = Vector2(1.27188, 1.30185)
-texture = ExtResource("4_qgph1")
-
-[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
-motion_mirroring = Vector2(2400, 0)
-
-[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
-position = Vector2(-736, -1133)
-scale = Vector2(1.25, 1.25)
-texture = ExtResource("5_rinxq")
-centered = false
-
-[node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground"]
-position = Vector2(-2, -664)
-motion_mirroring = Vector2(2400, 0)
-
-[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2"]
-texture_repeat = 2
-position = Vector2(-412, -483)
-scale = Vector2(1.25, 1.25)
-texture = ExtResource("6_u1cm2")
-centered = false
-region_rect = Rect2(1920, 1080, 100, 100)
-
-[node name="CharmPickup" parent="." instance=ExtResource("7_4pnq0")]
-position = Vector2(3735, 41)
-
-[node name="CharmPickup2" parent="." instance=ExtResource("7_4pnq0")]
-position = Vector2(3844, 43)
-
-[node name="CharmPickup3" parent="." instance=ExtResource("7_4pnq0")]
-position = Vector2(3975, 42)
-
-[node name="CharmPickup4" parent="." instance=ExtResource("7_4pnq0")]
-position = Vector2(4098, 45)
-
-[node name="CharmPickup5" parent="." instance=ExtResource("7_4pnq0")]
-position = Vector2(4212, 46)
-
-[node name="CharmPickup6" parent="." instance=ExtResource("7_4pnq0")]
-position = Vector2(4304, 34)
-
-[node name="CharmPickup7" parent="." instance=ExtResource("7_4pnq0")]
-position = Vector2(4184, -45)
-
-[node name="CharmPickup8" parent="." instance=ExtResource("7_4pnq0")]
-position = Vector2(4011, -55)
-
-[node name="CharmPickup9" parent="." instance=ExtResource("7_4pnq0")]
-position = Vector2(3833, -68)
-
-[node name="CharmPickup10" parent="." instance=ExtResource("7_4pnq0")]
-position = Vector2(3846, -182)
-
-[node name="CharmPickup11" parent="." instance=ExtResource("7_4pnq0")]
-position = Vector2(3989, -135)
-
-[node name="CharmPickup12" parent="." instance=ExtResource("7_4pnq0")]
-position = Vector2(4047, -200)
-
-[node name="CharmPickup13" parent="." instance=ExtResource("7_4pnq0")]
-position = Vector2(3885, -348)
-
-[node name="CharmPickup14" parent="." instance=ExtResource("7_4pnq0")]
-position = Vector2(3885, -348)
-
-[node name="CharmPickup15" parent="." instance=ExtResource("7_4pnq0")]
-position = Vector2(3959, -267)
-
-[node name="CharmPickup16" parent="." instance=ExtResource("7_4pnq0")]
-position = Vector2(4125, -144)
-
-[node name="CharmPickup17" parent="." instance=ExtResource("7_4pnq0")]
-position = Vector2(4253, -102)
-
-[node name="CharmPickup18" parent="." instance=ExtResource("7_4pnq0")]
-position = Vector2(4376, -28)
-
-[node name="CharmPickup19" parent="." instance=ExtResource("7_4pnq0")]
-position = Vector2(4193, -211)
-
-[node name="CharmPickup20" parent="." instance=ExtResource("7_4pnq0")]
-position = Vector2(4114, -287)
-
-[node name="CharmPickup21" parent="." instance=ExtResource("7_4pnq0")]
-position = Vector2(4346, -121)
-
-[node name="CharmPickup22" parent="." instance=ExtResource("7_4pnq0")]
-position = Vector2(4416, 41)
-
-[node name="CharmPickup23" parent="." instance=ExtResource("7_4pnq0")]
-position = Vector2(4467, -57)
-
-[node name="CharmPickup24" parent="." instance=ExtResource("7_4pnq0")]
-position = Vector2(3744, -63)
-
-[node name="CharmPickup25" parent="." instance=ExtResource("7_4pnq0")]
-position = Vector2(3644, -57)
-
-[node name="CharmPickup26" parent="." instance=ExtResource("7_4pnq0")]
-position = Vector2(3619, 47)
-
-[node name="CharmPickup27" parent="." instance=ExtResource("7_4pnq0")]
-position = Vector2(3523, 28)
-
-[node name="CharmPickup28" parent="." instance=ExtResource("7_4pnq0")]
-position = Vector2(3521, -38)
-
-[node name="CharmPickup29" parent="." instance=ExtResource("7_4pnq0")]
-position = Vector2(3585, -87)
-
-[node name="CharmPickup30" parent="." instance=ExtResource("7_4pnq0")]
-position = Vector2(3585, -87)
-
-[node name="CharmPickup31" parent="." instance=ExtResource("7_4pnq0")]
-position = Vector2(3653, -163)
-
-[node name="CharmPickup32" parent="." instance=ExtResource("7_4pnq0")]
-position = Vector2(3736, -152)
-
-[node name="CharmPickup33" parent="." instance=ExtResource("7_4pnq0")]
-position = Vector2(3562, -158)
-
-[node name="CharmPickup34" parent="." instance=ExtResource("7_4pnq0")]
-position = Vector2(3494, -111)
-
-[node name="CharmPickup35" parent="." instance=ExtResource("7_4pnq0")]
-position = Vector2(3447, -32)
-
-[node name="CharmPickup36" parent="." instance=ExtResource("7_4pnq0")]
-position = Vector2(3447, 72)
-
-[node name="CharmPickup37" parent="." instance=ExtResource("7_4pnq0")]
-position = Vector2(3556, 91)
-
-[node name="CharmPickup38" parent="." instance=ExtResource("7_4pnq0")]
-position = Vector2(3679, -1)
-
-[node name="CharmPickup39" parent="." instance=ExtResource("7_4pnq0")]
-position = Vector2(3779, -224)
-
-[node name="CharmPickup40" parent="." instance=ExtResource("7_4pnq0")]
-position = Vector2(3913, -215)
-
-[node name="CharmPickup41" parent="." instance=ExtResource("7_4pnq0")]
-position = Vector2(3913, -215)
-
-[node name="CharmPickup42" parent="." instance=ExtResource("7_4pnq0")]
-position = Vector2(6259, 47)
-
-[node name="CharmPickup43" parent="." instance=ExtResource("7_4pnq0")]
-position = Vector2(6294, -59)
-
-[node name="CharmPickup44" parent="." instance=ExtResource("7_4pnq0")]
-position = Vector2(6405, 54)
-
-[node name="CharmPickup45" parent="." instance=ExtResource("7_4pnq0")]
-position = Vector2(6511, -42)
-
-[node name="CharmPickup46" parent="." instance=ExtResource("7_4pnq0")]
-position = Vector2(6602, 84)
 
 [node name="Level_Music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("8_nw4ld")
 volume_db = -10.24
 autoplay = true
 bus = &"Music"
+
+[node name="ShopStall_2" parent="." instance=ExtResource("2_2dfgw")]
+position = Vector2(3616, 49)
+
+[node name="Slide Obstacle 1" parent="." instance=ExtResource("10_a7hb4")]
+position = Vector2(4032, 60)
+
+[node name="ShopStall_3" parent="." instance=ExtResource("2_2dfgw")]
+position = Vector2(4441, 49)
+
+[node name="ShopStall_5" parent="." instance=ExtResource("2_2dfgw")]
+position = Vector2(4608, 49)
+
+[node name="ShopStall_6" parent="." instance=ExtResource("2_2dfgw")]
+position = Vector2(6312, 49)
+
+[node name="ShopStall_7" parent="." instance=ExtResource("2_2dfgw")]
+position = Vector2(6642, 49)
+
+[node name="Slide Obstacle 2" parent="." instance=ExtResource("10_a7hb4")]
+position = Vector2(4618, -141)
+
+[node name="Slide Obstacle 3" parent="." instance=ExtResource("10_a7hb4")]
+position = Vector2(5568, 60)
+
+[node name="Slide Obstacle 4" parent="." instance=ExtResource("10_a7hb4")]
+position = Vector2(5749, 60)
+
+[node name="Slide Obstacle 5" parent="." instance=ExtResource("10_a7hb4")]
+position = Vector2(7080, 60)
+
+[node name="Box" parent="." instance=ExtResource("1_8rip3")]
+position = Vector2(3464, 108)
+
+[node name="Box2" parent="." instance=ExtResource("1_8rip3")]
+position = Vector2(7080, 109)
+
+[node name="CharmPickup" parent="." instance=ExtResource("7_4pnq0")]
+position = Vector2(3808, 96)
+
+[node name="CharmPickup2" parent="." instance=ExtResource("7_4pnq0")]
+position = Vector2(3872, 96)
+
+[node name="CharmPickup3" parent="." instance=ExtResource("7_4pnq0")]
+position = Vector2(4032, 96)
+
+[node name="CharmPickup4" parent="." instance=ExtResource("7_4pnq0")]
+position = Vector2(4227, 1)
+
+[node name="CharmPickup5" parent="." instance=ExtResource("7_4pnq0")]
+position = Vector2(4289, -63)
+
+[node name="CharmPickup6" parent="." instance=ExtResource("7_4pnq0")]
+position = Vector2(4397, -103)
+
+[node name="CharmPickup7" parent="." instance=ExtResource("7_4pnq0")]
+position = Vector2(4542, -103)
+
+[node name="CharmPickup8" parent="." instance=ExtResource("7_4pnq0")]
+position = Vector2(4678, -103)
+
+[node name="CharmPickup9" parent="." instance=ExtResource("7_4pnq0")]
+position = Vector2(4799, -70)
+
+[node name="CharmPickup10" parent="." instance=ExtResource("7_4pnq0")]
+position = Vector2(4889, 5)
+
+[node name="CharmPickup11" parent="." instance=ExtResource("7_4pnq0")]
+position = Vector2(4979, 84)
+
+[node name="CharmPickup12" parent="." instance=ExtResource("7_4pnq0")]
+position = Vector2(5085, 93)
+
+[node name="CharmPickup13" parent="." instance=ExtResource("7_4pnq0")]
+position = Vector2(5205, 96)
+
+[node name="CharmPickup14" parent="." instance=ExtResource("7_4pnq0")]
+position = Vector2(5316, 98)
+
+[node name="CharmPickup15" parent="." instance=ExtResource("7_4pnq0")]
+position = Vector2(5422, 98)
+
+[node name="CharmPickup16" parent="." instance=ExtResource("7_4pnq0")]
+position = Vector2(5614, 98)
+
+[node name="CharmPickup17" parent="." instance=ExtResource("7_4pnq0")]
+position = Vector2(5696, 98)
+
+[node name="CharmPickup18" parent="." instance=ExtResource("7_4pnq0")]
+position = Vector2(5954, 98)
+
+[node name="CharmPickup19" parent="." instance=ExtResource("7_4pnq0")]
+position = Vector2(6052, 34)
+
+[node name="CharmPickup20" parent="." instance=ExtResource("7_4pnq0")]
+position = Vector2(6147, -30)
+
+[node name="CharmPickup21" parent="." instance=ExtResource("7_4pnq0")]
+position = Vector2(6225, -90)
+
+[node name="CharmPickup22" parent="." instance=ExtResource("7_4pnq0")]
+position = Vector2(6338, -90)
+
+[node name="CharmPickup23" parent="." instance=ExtResource("7_4pnq0")]
+position = Vector2(6490, 65)
+
+[node name="CharmPickup24" parent="." instance=ExtResource("7_4pnq0")]
+position = Vector2(6621, -91)
+
+[node name="CharmPickup25" parent="." instance=ExtResource("7_4pnq0")]
+position = Vector2(6692, -91)
+
+[node name="Tree" parent="." instance=ExtResource("3_th61d")]
+position = Vector2(5200, 152)

@@ -21,6 +21,7 @@ func _on_area_2d_body_entered(body):
 
 
 func _on_timer_timeout():
+	$Cat/AnimationPlayer.play("Fall")
 	$Cat.gravity_scale = 1
 	$Cat.get_node("CollisionShape2D").disabled = false
 	$TextureProgressBar.visible = false
@@ -28,6 +29,7 @@ func _on_timer_timeout():
 
 func _on_cat_death_plane_body_entered(body):
 	print("Cat died")
+	$Cat/AnimationPlayer.play("Die")
 	if player and not body.already_charmed:
 		$Cat_Died.play()
 		player.charm_progress -= 10

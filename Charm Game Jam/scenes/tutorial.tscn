@@ -37,97 +37,13 @@ text = "Place the box \"E\" beneath the cat to save it!"
 [node name="ShopStall_2" parent="." instance=ExtResource("3_ntrvn")]
 position = Vector2(1689, -100)
 
-[node name="ShopStall_3" parent="." instance=ExtResource("3_ntrvn")]
-position = Vector2(1689, -100)
-
-[node name="ShopStall_4" parent="." instance=ExtResource("3_ntrvn")]
-position = Vector2(1689, -100)
-
-[node name="ShopStall_5" parent="." instance=ExtResource("3_ntrvn")]
-position = Vector2(1689, -100)
-
-[node name="ShopStall_6" parent="." instance=ExtResource("3_ntrvn")]
-position = Vector2(1689, -100)
-
-[node name="ShopStall_7" parent="." instance=ExtResource("3_ntrvn")]
-position = Vector2(1689, -100)
-
-[node name="ShopStall_8" parent="." instance=ExtResource("3_ntrvn")]
-position = Vector2(1689, -100)
-
-[node name="ShopStall_9" parent="." instance=ExtResource("3_ntrvn")]
-position = Vector2(1689, -100)
-
-[node name="ShopStall_10" parent="." instance=ExtResource("3_ntrvn")]
-position = Vector2(1689, -100)
-
-[node name="ShopStall_11" parent="." instance=ExtResource("3_ntrvn")]
-position = Vector2(1689, -100)
-
-[node name="ShopStall_12" parent="." instance=ExtResource("3_ntrvn")]
-position = Vector2(1689, -100)
-
-[node name="ShopStall_13" parent="." instance=ExtResource("3_ntrvn")]
-position = Vector2(1689, -100)
-
-[node name="ShopStall_14" parent="." instance=ExtResource("3_ntrvn")]
-position = Vector2(1689, -100)
-
-[node name="ShopStall_15" parent="." instance=ExtResource("3_ntrvn")]
-position = Vector2(1689, -100)
-
-[node name="ShopStall_16" parent="." instance=ExtResource("3_ntrvn")]
-position = Vector2(1689, -100)
-
-[node name="ShopStall_17" parent="." instance=ExtResource("3_ntrvn")]
-position = Vector2(1689, -100)
-
-[node name="ShopStall_18" parent="." instance=ExtResource("3_ntrvn")]
-position = Vector2(1689, -100)
-
-[node name="ShopStall_19" parent="." instance=ExtResource("3_ntrvn")]
-position = Vector2(1689, -100)
-
-[node name="ShopStall_20" parent="." instance=ExtResource("3_ntrvn")]
-position = Vector2(1689, -100)
-
-[node name="ShopStall_21" parent="." instance=ExtResource("3_ntrvn")]
-position = Vector2(1689, -100)
-
-[node name="ShopStall_22" parent="." instance=ExtResource("3_ntrvn")]
-position = Vector2(1689, -100)
-
-[node name="ShopStall_23" parent="." instance=ExtResource("3_ntrvn")]
-position = Vector2(1689, -100)
-
-[node name="ShopStall_24" parent="." instance=ExtResource("3_ntrvn")]
-position = Vector2(1689, -100)
-
-[node name="ShopStall_25" parent="." instance=ExtResource("3_ntrvn")]
-position = Vector2(1689, -100)
-
-[node name="ShopStall_26" parent="." instance=ExtResource("3_ntrvn")]
-position = Vector2(1689, -100)
-
-[node name="ShopStall_27" parent="." instance=ExtResource("3_ntrvn")]
-position = Vector2(1689, -100)
-
-[node name="ShopStall_28" parent="." instance=ExtResource("3_ntrvn")]
-position = Vector2(1689, -100)
-
-[node name="ShopStall_29" parent="." instance=ExtResource("3_ntrvn")]
-position = Vector2(1689, -100)
-
-[node name="ShopStall_30" parent="." instance=ExtResource("3_ntrvn")]
-position = Vector2(1689, -100)
-
 [node name="RichTextLabel3" type="RichTextLabel" parent="."]
 offset_left = 1426.0
 offset_top = -359.0
 offset_right = 1699.0
-offset_bottom = -278.0
+offset_bottom = -253.0
 theme_override_font_sizes/normal_font_size = 24
-text = "Jump over the stalls to avoid losing charm!"
+text = "Jump \"Space\" over the stalls to avoid losing charm!"
 
 [node name="EndTutorial" type="Area2D" parent="."]
 collision_layer = 0
@@ -142,10 +58,10 @@ position = Vector2(2303, -90)
 
 [node name="RichTextLabel4" type="RichTextLabel" parent="."]
 offset_left = 1927.0
-offset_top = -176.0
+offset_top = -196.0
 offset_right = 2234.0
-offset_bottom = -101.0
+offset_bottom = -90.0
 theme_override_font_sizes/normal_font_size = 24
-text = "Slide under the obstacle to avoid breaking it!"
+text = "Slide \"S\" under the obstacle to avoid breaking it!"
 
 [connection signal="body_entered" from="EndTutorial" to="." method="_on_end_tutorial_body_entered"]

@@ -1,9 +1,21 @@
-[gd_scene load_steps=7 format=3 uid="uid://bpgeeo1h8pj4o"]
+[gd_scene load_steps=9 format=3 uid="uid://bpgeeo1h8pj4o"]
 
 [ext_resource type="Script" path="res://scenes/tree/tree.gd" id="1_gegl7"]
 [ext_resource type="Texture2D" uid="uid://b0jyabdm6d1bs" path="res://assets/clock/Red-Circle-Small-PNG-File.png" id="1_p04ru"]
+[ext_resource type="Texture2D" uid="uid://br3ad18l30gsl" path="res://assets/Tree/Tree.png" id="2_dgw0d"]
 [ext_resource type="PackedScene" uid="uid://bi3jytm04v2jm" path="res://scenes/tree/cat.tscn" id="3_4fvu8"]
 [ext_resource type="AudioStream" uid="uid://bg7hkwuwmkmyk" path="res://assets/sound_effects/Cat_die.mp3" id="4_n11lb"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_wccqb"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_dgw0d")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_riqsd"]
 radius = 402.08
@@ -15,6 +27,9 @@ size = Vector2(805, 18)
 script = ExtResource("1_gegl7")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(46, -318)
+scale = Vector2(0.393306, 0.454899)
+sprite_frames = SubResource("SpriteFrames_wccqb")
 
 [node name="Area2D" type="Area2D" parent="."]
 collision_layer = 0
@@ -49,7 +64,7 @@ collision_mask = 4
 shape = SubResource("RectangleShape2D_w4sbt")
 
 [node name="Cat" parent="." instance=ExtResource("3_4fvu8")]
-position = Vector2(1, -388)
+position = Vector2(-62, -472)
 
 [node name="Cat_Died" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_n11lb")
