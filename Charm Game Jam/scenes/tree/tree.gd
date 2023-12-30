@@ -28,8 +28,10 @@ func _on_timer_timeout():
 
 
 func _on_cat_death_plane_body_entered(body):
-	$Cat/AnimationPlayer.play("Die")
 	if player and not body.already_charmed:
+		$Cat/AnimationPlayer.play("Die")
+		body.call_deferred("set_collision_mask_value", 4, false)
+		body.call_deferred("set_collision_layer_value", 3, false)
 		$Cat_Died.play()
 		player.charm_progress -= 10
 		body.already_charmed = true

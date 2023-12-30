@@ -20,15 +20,15 @@ func _on_body_entered(body):
 		body.get_node("AnimationPlayer").play("survived")
 		$Cat_Saved.play()
 		body.already_charmed = true
-	body.global_position.x = get_parent().global_position.x
-	
-	$CollisionShape2D.set_deferred("disabled", true)
-	set_deferred("monitorable", false)
-	set_deferred("monitoring", false)
-	get_parent().pickupable = false # make it so box cannot be used again
-	get_parent().pick_up_range_collision.set_deferred("disabled", true)
-	
-	for i in range(0, 5):
-		var temp = fruit_debris.pick_random().instantiate()
-		get_tree().current_scene.call_deferred("add_child", temp)
-		temp.global_position = global_position + Vector2(randi_range(-40, 40), randi_range(-20, 10))
+		body.global_position.x = get_parent().global_position.x
+		
+		$CollisionShape2D.set_deferred("disabled", true)
+		set_deferred("monitorable", false)
+		set_deferred("monitoring", false)
+		get_parent().pickupable = false # make it so box cannot be used again
+		get_parent().pick_up_range_collision.set_deferred("disabled", true)
+		
+		for i in range(0, 5):
+			var temp = fruit_debris.pick_random().instantiate()
+			get_tree().current_scene.call_deferred("add_child", temp)
+			temp.global_position = global_position + Vector2(randi_range(-40, 40), randi_range(-20, 10))

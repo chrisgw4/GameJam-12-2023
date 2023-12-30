@@ -23,6 +23,57 @@ size = Vector2(247, 829)
 position = Vector2(6520, 169)
 scale = Vector2(82.16, 1)
 
+[node name="Platform2" parent="Platform" instance=ExtResource("1_s4biy")]
+position = Vector2(7712, -120)
+
+[node name="Platform3" parent="Platform" instance=ExtResource("1_s4biy")]
+position = Vector2(7976, -240)
+
+[node name="Platform4" parent="Platform" instance=ExtResource("1_s4biy")]
+position = Vector2(8247, -416)
+
+[node name="Platform18" parent="Platform" instance=ExtResource("1_s4biy")]
+position = Vector2(8712, -24)
+
+[node name="Platform5" parent="Platform" instance=ExtResource("1_s4biy")]
+position = Vector2(8480, -568)
+
+[node name="Platform6" parent="Platform" instance=ExtResource("1_s4biy")]
+position = Vector2(8735, -704)
+
+[node name="Platform7" parent="Platform" instance=ExtResource("1_s4biy")]
+position = Vector2(8936, -704)
+
+[node name="Platform8" parent="Platform" instance=ExtResource("1_s4biy")]
+position = Vector2(9128, -704)
+
+[node name="Platform9" parent="Platform" instance=ExtResource("1_s4biy")]
+position = Vector2(9328, -704)
+
+[node name="Platform14" parent="Platform" instance=ExtResource("1_s4biy")]
+position = Vector2(8735, -704)
+
+[node name="Platform15" parent="Platform" instance=ExtResource("1_s4biy")]
+position = Vector2(8935, -704)
+
+[node name="Platform16" parent="Platform" instance=ExtResource("1_s4biy")]
+position = Vector2(9128, -704)
+
+[node name="Platform17" parent="Platform" instance=ExtResource("1_s4biy")]
+position = Vector2(9328, -704)
+
+[node name="Platform10" parent="Platform" instance=ExtResource("1_s4biy")]
+position = Vector2(9528, -704)
+
+[node name="Platform11" parent="Platform" instance=ExtResource("1_s4biy")]
+position = Vector2(9728, -704)
+
+[node name="Platform12" parent="Platform" instance=ExtResource("1_s4biy")]
+position = Vector2(9921, -704)
+
+[node name="Platform13" parent="Platform" instance=ExtResource("1_s4biy")]
+position = Vector2(10121, -704)
+
 [node name="Tutorial" parent="." instance=ExtResource("9_k34ji")]
 position = Vector2(254, 149)
 
@@ -39,10 +90,10 @@ autoplay = true
 bus = &"Music"
 
 [node name="ShopStall_2" parent="." instance=ExtResource("2_2dfgw")]
-position = Vector2(3615, 53)
+position = Vector2(3616, 56)
 
 [node name="Slide Obstacle 1" parent="." instance=ExtResource("10_a7hb4")]
-position = Vector2(4032, 60)
+position = Vector2(4032, 56)
 
 [node name="ShopStall_3" parent="." instance=ExtResource("2_2dfgw")]
 position = Vector2(4441, 52)
@@ -56,20 +107,62 @@ position = Vector2(6312, 52)
 [node name="ShopStall_7" parent="." instance=ExtResource("2_2dfgw")]
 position = Vector2(6642, 53)
 
+[node name="ShopStall_8" parent="." instance=ExtResource("2_2dfgw")]
+position = Vector2(6642, 53)
+
+[node name="ShopStall_13" parent="." instance=ExtResource("2_2dfgw")]
+position = Vector2(10112, 56)
+
+[node name="ShopStall_14" parent="." instance=ExtResource("2_2dfgw")]
+position = Vector2(9312, 56)
+
+[node name="ShopStall_9" parent="." instance=ExtResource("2_2dfgw")]
+position = Vector2(9344, -824)
+
+[node name="ShopStall_10" parent="." instance=ExtResource("2_2dfgw")]
+position = Vector2(10745, -816)
+
+[node name="ShopStall_11" parent="." instance=ExtResource("2_2dfgw")]
+position = Vector2(11145, -816)
+
+[node name="ShopStall_12" parent="." instance=ExtResource("2_2dfgw")]
+position = Vector2(11864, -440)
+
 [node name="Slide Obstacle 2" parent="." instance=ExtResource("10_a7hb4")]
 position = Vector2(4618, -135)
 
 [node name="Slide Obstacle 3" parent="." instance=ExtResource("10_a7hb4")]
 position = Vector2(5568, 60)
 
-[node name="Slide Obstacle 4" parent="." instance=ExtResource("10_a7hb4")]
-position = Vector2(5749, 60)
-
 [node name="Slide Obstacle 5" parent="." instance=ExtResource("10_a7hb4")]
 position = Vector2(7080, 60)
 
+[node name="Slide Obstacle 10" parent="." instance=ExtResource("10_a7hb4")]
+position = Vector2(8312, 56)
+
+[node name="Slide Obstacle 11" parent="." instance=ExtResource("10_a7hb4")]
+position = Vector2(8896, 56)
+
+[node name="Slide Obstacle 6" parent="." instance=ExtResource("10_a7hb4")]
+position = Vector2(8944, -816)
+
+[node name="Slide Obstacle 8" parent="." instance=ExtResource("10_a7hb4")]
+position = Vector2(10952, -816)
+
+[node name="Slide Obstacle 9" parent="." instance=ExtResource("10_a7hb4")]
+position = Vector2(11592, -816)
+
+[node name="Slide Obstacle 7" parent="." instance=ExtResource("10_a7hb4")]
+position = Vector2(10128, -816)
+
 [node name="Box3" parent="." instance=ExtResource("1_8rip3")]
-position = Vector2(5964, 108)
+position = Vector2(5748, 108)
+
+[node name="Box5" parent="." instance=ExtResource("1_8rip3")]
+position = Vector2(8896, 109)
+
+[node name="Box4" parent="." instance=ExtResource("1_8rip3")]
+position = Vector2(9360, -952)
 
 [node name="Box2" parent="." instance=ExtResource("1_8rip3")]
 position = Vector2(7080, 109)
@@ -120,10 +213,7 @@ position = Vector2(5316, 98)
 position = Vector2(5422, 98)
 
 [node name="CharmPickup16" parent="." instance=ExtResource("7_4pnq0")]
-position = Vector2(5614, 98)
-
-[node name="CharmPickup17" parent="." instance=ExtResource("7_4pnq0")]
-position = Vector2(5696, 98)
+position = Vector2(5568, 96)
 
 [node name="CharmPickup18" parent="." instance=ExtResource("7_4pnq0")]
 position = Vector2(5954, 98)
@@ -146,14 +236,273 @@ position = Vector2(6490, 65)
 [node name="CharmPickup24" parent="." instance=ExtResource("7_4pnq0")]
 position = Vector2(6621, -91)
 
+[node name="CharmPickup26" parent="." instance=ExtResource("7_4pnq0")]
+position = Vector2(6816, -8)
+
 [node name="CharmPickup25" parent="." instance=ExtResource("7_4pnq0")]
 position = Vector2(6692, -91)
 
+[node name="CharmPickup27" parent="." instance=ExtResource("7_4pnq0")]
+position = Vector2(6912, 72)
+
+[node name="CharmPickup28" parent="." instance=ExtResource("7_4pnq0")]
+position = Vector2(7272, 72)
+
+[node name="CharmPickup29" parent="." instance=ExtResource("7_4pnq0")]
+position = Vector2(7464, 8)
+
+[node name="CharmPickup58" parent="." instance=ExtResource("7_4pnq0")]
+position = Vector2(7464, 8)
+
+[node name="CharmPickup30" parent="." instance=ExtResource("7_4pnq0")]
+position = Vector2(7552, -120)
+
+[node name="CharmPickup59" parent="." instance=ExtResource("7_4pnq0")]
+position = Vector2(7784, 80)
+
+[node name="CharmPickup60" parent="." instance=ExtResource("7_4pnq0")]
+position = Vector2(7984, 64)
+
+[node name="CharmPickup61" parent="." instance=ExtResource("7_4pnq0")]
+position = Vector2(8312, 96)
+
+[node name="CharmPickup64" parent="." instance=ExtResource("7_4pnq0")]
+position = Vector2(8536, -8)
+
+[node name="CharmPickup65" parent="." instance=ExtResource("7_4pnq0")]
+position = Vector2(8536, -8)
+
+[node name="CharmPickup62" parent="." instance=ExtResource("7_4pnq0")]
+position = Vector2(8704, -96)
+
+[node name="CharmPickup69" parent="." instance=ExtResource("7_4pnq0")]
+position = Vector2(9056, 96)
+
+[node name="CharmPickup70" parent="." instance=ExtResource("7_4pnq0")]
+position = Vector2(9056, 96)
+
+[node name="CharmPickup67" parent="." instance=ExtResource("7_4pnq0")]
+position = Vector2(8904, -216)
+
+[node name="CharmPickup68" parent="." instance=ExtResource("7_4pnq0")]
+position = Vector2(8904, -216)
+
+[node name="CharmPickup71" parent="." instance=ExtResource("7_4pnq0")]
+position = Vector2(9184, 96)
+
+[node name="CharmPickup63" parent="." instance=ExtResource("7_4pnq0")]
+position = Vector2(9120, -88)
+
+[node name="CharmPickup66" parent="." instance=ExtResource("7_4pnq0")]
+position = Vector2(9120, -88)
+
+[node name="CharmPickup31" parent="." instance=ExtResource("7_4pnq0")]
+position = Vector2(7712, -224)
+
+[node name="CharmPickup32" parent="." instance=ExtResource("7_4pnq0")]
+position = Vector2(7808, -304)
+
+[node name="CharmPickup33" parent="." instance=ExtResource("7_4pnq0")]
+position = Vector2(7972, -360)
+
+[node name="CharmPickup34" parent="." instance=ExtResource("7_4pnq0")]
+position = Vector2(8096, -416)
+
+[node name="CharmPickup35" parent="." instance=ExtResource("7_4pnq0")]
+position = Vector2(8208, -504)
+
+[node name="CharmPickup36" parent="." instance=ExtResource("7_4pnq0")]
+position = Vector2(8304, -504)
+
+[node name="CharmPickup37" parent="." instance=ExtResource("7_4pnq0")]
+position = Vector2(8480, -640)
+
+[node name="CharmPickup38" parent="." instance=ExtResource("7_4pnq0")]
+position = Vector2(8728, -768)
+
+[node name="CharmPickup39" parent="." instance=ExtResource("7_4pnq0")]
+position = Vector2(8920, -776)
+
+[node name="CharmPickup40" parent="." instance=ExtResource("7_4pnq0")]
+position = Vector2(9088, -776)
+
+[node name="CharmPickup41" parent="." instance=ExtResource("7_4pnq0")]
+position = Vector2(9184, -896)
+
+[node name="CharmPickup42" parent="." instance=ExtResource("7_4pnq0")]
+position = Vector2(9528, -944)
+
+[node name="CharmPickup43" parent="." instance=ExtResource("7_4pnq0")]
+position = Vector2(9640, -880)
+
+[node name="CharmPickup45" parent="." instance=ExtResource("7_4pnq0")]
+position = Vector2(9640, -880)
+
+[node name="CharmPickup44" parent="." instance=ExtResource("7_4pnq0")]
+position = Vector2(9752, -792)
+
+[node name="CharmPickup46" parent="." instance=ExtResource("7_4pnq0")]
+position = Vector2(9904, -792)
+
+[node name="CharmPickup47" parent="." instance=ExtResource("7_4pnq0")]
+position = Vector2(10128, -776)
+
+[node name="CharmPickup48" parent="." instance=ExtResource("7_4pnq0")]
+position = Vector2(10369, -792)
+
+[node name="CharmPickup49" parent="." instance=ExtResource("7_4pnq0")]
+position = Vector2(10369, -792)
+
+[node name="CharmPickup50" parent="." instance=ExtResource("7_4pnq0")]
+position = Vector2(10571, -906)
+
+[node name="CharmPickup51" parent="." instance=ExtResource("7_4pnq0")]
+position = Vector2(10744, -960)
+
+[node name="CharmPickup54" parent="." instance=ExtResource("7_4pnq0")]
+position = Vector2(10840, -1064)
+
+[node name="CharmPickup52" parent="." instance=ExtResource("7_4pnq0")]
+position = Vector2(10944, -1136)
+
+[node name="CharmPickup53" parent="." instance=ExtResource("7_4pnq0")]
+position = Vector2(11048, -1064)
+
+[node name="CharmPickup55" parent="." instance=ExtResource("7_4pnq0")]
+position = Vector2(11168, -968)
+
+[node name="CharmPickup56" parent="." instance=ExtResource("7_4pnq0")]
+position = Vector2(11352, -856)
+
+[node name="CharmPickup57" parent="." instance=ExtResource("7_4pnq0")]
+position = Vector2(11584, -768)
+
 [node name="Tree" parent="." instance=ExtResource("3_th61d")]
 position = Vector2(5200, 152)
+
+[node name="Tree2" parent="." instance=ExtResource("3_th61d")]
+position = Vector2(10168, -720)
+
+[node name="Tree3" parent="." instance=ExtResource("3_th61d")]
+position = Vector2(9384, 158)
+
+[node name="Platform18" parent="." instance=ExtResource("1_s4biy")]
+position = Vector2(8735, -704)
+
+[node name="Platform19" parent="." instance=ExtResource("1_s4biy")]
+position = Vector2(8935, -704)
+
+[node name="Platform20" parent="." instance=ExtResource("1_s4biy")]
+position = Vector2(9128, -704)
+
+[node name="Platform21" parent="." instance=ExtResource("1_s4biy")]
+position = Vector2(9328, -704)
+
+[node name="Platform22" parent="." instance=ExtResource("1_s4biy")]
+position = Vector2(8735, -704)
+
+[node name="Platform23" parent="." instance=ExtResource("1_s4biy")]
+position = Vector2(8935, -704)
+
+[node name="Platform24" parent="." instance=ExtResource("1_s4biy")]
+position = Vector2(9128, -704)
+
+[node name="Platform25" parent="." instance=ExtResource("1_s4biy")]
+position = Vector2(9328, -704)
+
+[node name="Platform26" parent="." instance=ExtResource("1_s4biy")]
+position = Vector2(8735, -704)
+
+[node name="Platform27" parent="." instance=ExtResource("1_s4biy")]
+position = Vector2(8935, -704)
+
+[node name="Platform28" parent="." instance=ExtResource("1_s4biy")]
+position = Vector2(9128, -704)
+
+[node name="Platform29" parent="." instance=ExtResource("1_s4biy")]
+position = Vector2(9328, -704)
+
+[node name="Platform30" parent="." instance=ExtResource("1_s4biy")]
+position = Vector2(8735, -704)
+
+[node name="Platform31" parent="." instance=ExtResource("1_s4biy")]
+position = Vector2(8935, -704)
+
+[node name="Platform32" parent="." instance=ExtResource("1_s4biy")]
+position = Vector2(9128, -704)
+
+[node name="Platform33" parent="." instance=ExtResource("1_s4biy")]
+position = Vector2(9328, -704)
+
+[node name="Platform38" parent="." instance=ExtResource("1_s4biy")]
+position = Vector2(11289, -704)
+
+[node name="Platform39" parent="." instance=ExtResource("1_s4biy")]
+position = Vector2(11088, -704)
+
+[node name="Platform40" parent="." instance=ExtResource("1_s4biy")]
+position = Vector2(11481, -704)
+
+[node name="Platform41" parent="." instance=ExtResource("1_s4biy")]
+position = Vector2(11681, -704)
+
+[node name="Platform42" parent="." instance=ExtResource("1_s4biy")]
+position = Vector2(10121, -704)
+
+[node name="Platform43" parent="." instance=ExtResource("1_s4biy")]
+position = Vector2(11872, -320)
+
+[node name="Platform34" parent="." instance=ExtResource("1_s4biy")]
+position = Vector2(10320, -704)
+
+[node name="Platform35" parent="." instance=ExtResource("1_s4biy")]
+position = Vector2(10512, -704)
+
+[node name="Platform36" parent="." instance=ExtResource("1_s4biy")]
+position = Vector2(10704, -704)
+
+[node name="Platform37" parent="." instance=ExtResource("1_s4biy")]
+position = Vector2(10896, -704)
 
 [node name="StaticBody2D2" type="StaticBody2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
 position = Vector2(-819, -262)
 shape = SubResource("RectangleShape2D_jyste")
+
+[node name="Node2D" type="Node2D" parent="."]
+position = Vector2(11983, -783)
+
+[node name="Platform42" parent="Node2D" instance=ExtResource("1_s4biy")]
+position = Vector2(0, -198)
+rotation = 1.5708
+
+[node name="Platform43" parent="Node2D" instance=ExtResource("1_s4biy")]
+position = Vector2(0, -1)
+rotation = 1.5708
+
+[node name="Platform44" parent="Node2D" instance=ExtResource("1_s4biy")]
+position = Vector2(0, -392)
+rotation = 1.5708
+
+[node name="Platform46" parent="Node2D" instance=ExtResource("1_s4biy")]
+position = Vector2(0, -584)
+rotation = 1.5708
+
+[node name="Platform45" parent="Node2D" instance=ExtResource("1_s4biy")]
+rotation = 1.5708
+
+[node name="Node2D2" type="Node2D" parent="."]
+position = Vector2(11983, -7)
+
+[node name="Platform42" parent="Node2D2" instance=ExtResource("1_s4biy")]
+position = Vector2(0, -198)
+rotation = 1.5708
+
+[node name="Platform44" parent="Node2D2" instance=ExtResource("1_s4biy")]
+position = Vector2(0, -392)
+rotation = 1.5708
+
+[node name="Platform46" parent="Node2D2" instance=ExtResource("1_s4biy")]
+position = Vector2(0, -584)
+rotation = 1.5708
