@@ -29,5 +29,6 @@ func _on_timer_timeout():
 func _on_cat_death_plane_body_entered(body):
 	print("Cat died")
 	if player and not body.already_charmed:
+		$Cat_Died.play()
 		player.charm_progress -= 10
 		body.already_charmed = true

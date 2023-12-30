@@ -21,6 +21,7 @@ func _on_break_area_body_entered(body):
 	#set_collision_layer_value(1, false)
 	call_deferred("set_collision_layer_value", 1, false)
 	$AnimationPlayer.play("crash")
+	$AudioStreamPlayer.play()
 	
 	for i in range(0, 5):
 		var temp = wood_debris.instantiate()

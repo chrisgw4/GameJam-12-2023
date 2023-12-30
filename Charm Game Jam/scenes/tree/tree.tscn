@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://bpgeeo1h8pj4o"]
+[gd_scene load_steps=7 format=3 uid="uid://bpgeeo1h8pj4o"]
 
 [ext_resource type="Script" path="res://scenes/tree/tree.gd" id="1_gegl7"]
 [ext_resource type="Texture2D" uid="uid://b0jyabdm6d1bs" path="res://assets/clock/Red-Circle-Small-PNG-File.png" id="1_p04ru"]
 [ext_resource type="PackedScene" uid="uid://bi3jytm04v2jm" path="res://scenes/tree/cat.tscn" id="3_4fvu8"]
+[ext_resource type="AudioStream" uid="uid://bg7hkwuwmkmyk" path="res://assets/sound_effects/Cat_die.mp3" id="4_n11lb"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_riqsd"]
 radius = 402.08
@@ -49,6 +50,10 @@ shape = SubResource("RectangleShape2D_w4sbt")
 
 [node name="Cat" parent="." instance=ExtResource("3_4fvu8")]
 position = Vector2(1, -388)
+
+[node name="Cat_Died" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_n11lb")
+bus = &"Sound Effects"
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

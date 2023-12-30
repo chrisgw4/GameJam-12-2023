@@ -98,6 +98,8 @@ func _physics_process(delta):
 			sliding = true
 			if is_on_floor():
 				velocity.x *= 1.5
+				if abs(velocity.x) >= 10:
+					$Slide_Sound.play()
 	elif abs(velocity.x) < 100:
 		sliding = false
 	else:

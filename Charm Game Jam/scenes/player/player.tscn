@@ -1,4 +1,4 @@
-[gd_scene load_steps=51 format=3 uid="uid://b1srp8i4xuuhj"]
+[gd_scene load_steps=52 format=3 uid="uid://b1srp8i4xuuhj"]
 
 [ext_resource type="Script" path="res://scenes/player/player.gd" id="1_efeqj"]
 [ext_resource type="Script" path="res://scenes/player/playerFSM.gd" id="1_w48qn"]
@@ -39,6 +39,7 @@
 [ext_resource type="Texture2D" uid="uid://xn65k86cfqdw" path="res://assets/slide/Slide_Initial-6.png" id="32_k50rm"]
 [ext_resource type="Texture2D" uid="uid://u08ilg5ux6ej" path="res://assets/slide/Slide_Initial-7.png" id="33_ol3gb"]
 [ext_resource type="Texture2D" uid="uid://dmn4no4ug8gph" path="res://assets/slide/Slide_Initial-8.png" id="34_xj03k"]
+[ext_resource type="AudioStream" uid="uid://mfxrheggjuim" path="res://assets/sound_effects/Slide.mp3" id="40_rrtw3"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_t6ll5"]
 animations = [{
@@ -916,6 +917,10 @@ bus = &"Sound Effects"
 [node name="Collection_Sound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("30_jxrwm")
 volume_db = 6.321
+bus = &"Sound Effects"
+
+[node name="Slide_Sound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("40_rrtw3")
 bus = &"Sound Effects"
 
 [connection signal="timeout" from="Pickup_CoolDown" to="." method="_on_pickup_cool_down_timeout"]

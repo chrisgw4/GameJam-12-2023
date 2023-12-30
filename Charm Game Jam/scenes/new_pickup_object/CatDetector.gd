@@ -16,6 +16,7 @@ func _process(_delta):
 func _on_body_entered(body):
 	if player and not body.already_charmed:
 		player.charm_progress += 5
+		$Cat_Saved.play()
 		body.already_charmed = true
 	body.global_position.x = get_parent().global_position.x
 	

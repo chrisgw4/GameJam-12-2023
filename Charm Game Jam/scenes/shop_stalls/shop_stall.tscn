@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://0n13n87bs4m7"]
+[gd_scene load_steps=4 format=3 uid="uid://0n13n87bs4m7"]
 
 [ext_resource type="Script" path="res://scenes/shop_stalls/shop_stall.gd" id="1_d1sb5"]
 [ext_resource type="Texture2D" uid="uid://dpcn576i3r5ly" path="res://assets/stalls/FoStEr_ThE_cRaSh_HaS_tHe_WhItE_BaCkGrOuNd.png" id="2_mfppy"]
+[ext_resource type="AudioStream" uid="uid://t8vy1u8k382e" path="res://assets/sound_effects/Collapse.mp3" id="3_ijc8i"]
 
 [node name="ShopStall" type="StaticBody2D"]
 script = ExtResource("1_d1sb5")
@@ -20,5 +21,9 @@ collision_mask = 2
 
 [node name="Crash" type="Sprite2D" parent="."]
 texture = ExtResource("2_mfppy")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_ijc8i")
+bus = &"Sound Effects"
 
 [connection signal="body_entered" from="BreakArea" to="." method="_on_break_area_body_entered"]
