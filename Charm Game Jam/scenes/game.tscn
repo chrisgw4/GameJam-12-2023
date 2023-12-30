@@ -90,7 +90,7 @@ script = ExtResource("4_ajq20")
 wait_time = 300.0
 
 [node name="Player" parent="." instance=ExtResource("1_6yklp")]
-position = Vector2(2, 2)
+position = Vector2(3, 24)
 
 [node name="ColorRect" type="ColorRect" parent="Player"]
 z_index = 2
@@ -164,4 +164,6 @@ position = Vector2(15000, -285)
 [node name="Coliseum" parent="." instance=ExtResource("13_35mxa")]
 position = Vector2(18721, -811)
 
+[connection signal="hidden" from="UI/Control" to="." method="_on_control_hidden"]
+[connection signal="visibility_changed" from="UI/Control" to="." method="_on_control_visibility_changed"]
 [connection signal="timeout" from="UI/Control/TimeLabel/Timer" to="." method="_on_timer_timeout"]

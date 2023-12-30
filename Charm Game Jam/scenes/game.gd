@@ -20,3 +20,10 @@ func _on_timer_timeout():
 func _start_timer():
 	$UI/Control/TimeLabel/Timer.start()
 	$UI/Control/TimeLabel.set_process(true)
+
+
+
+
+func _on_control_visibility_changed():
+	print("djijsd")
+	$Level_Music.stop()

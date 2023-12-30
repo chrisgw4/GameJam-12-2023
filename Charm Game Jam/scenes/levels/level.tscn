@@ -1,11 +1,10 @@
-[gd_scene load_steps=11 format=3 uid="uid://dwk04klx5n542"]
+[gd_scene load_steps=10 format=3 uid="uid://dwk04klx5n542"]
 
 [ext_resource type="PackedScene" uid="uid://dbg2liwiwsw0h" path="res://scenes/new_pickup_object/box.tscn" id="1_8rip3"]
 [ext_resource type="PackedScene" uid="uid://k26tyk3bi8fy" path="res://scenes/platform/platform.tscn" id="1_s4biy"]
 [ext_resource type="PackedScene" uid="uid://dq3jquxg1ttyu" path="res://scenes/shop_stalls/shop_stall_2.tscn" id="2_2dfgw"]
 [ext_resource type="PackedScene" uid="uid://bpgeeo1h8pj4o" path="res://scenes/tree/tree.tscn" id="3_th61d"]
 [ext_resource type="PackedScene" uid="uid://boinb1ngjgvg" path="res://scenes/charm_pickups/charm_pickup.tscn" id="7_4pnq0"]
-[ext_resource type="AudioStream" uid="uid://fioslm8u8ey" path="res://assets/music/Level Music.mp3" id="8_nw4ld"]
 [ext_resource type="PackedScene" uid="uid://de7hk73sbyua4" path="res://scenes/tutorial.tscn" id="9_k34ji"]
 [ext_resource type="PackedScene" uid="uid://3u6q2kawr5nc" path="res://scenes/slide_obstacles/slide_obstacle_1.tscn" id="10_a7hb4"]
 
@@ -82,12 +81,6 @@ position = Vector2(254, 149)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2(3633.5, 202.5)
 shape = SubResource("RectangleShape2D_b2cac")
-
-[node name="Level_Music" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("8_nw4ld")
-volume_db = -10.24
-autoplay = true
-bus = &"Music"
 
 [node name="ShopStall_2" parent="." instance=ExtResource("2_2dfgw")]
 position = Vector2(3616, 56)

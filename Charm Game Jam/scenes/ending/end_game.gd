@@ -5,7 +5,7 @@ var total_charm:int
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	# play drumroll here
+	$Drum.play()
 	await get_tree().create_timer(0.5).timeout
 	var tween = create_tween()
 	
@@ -14,10 +14,14 @@ func _ready():
 	
 	await tween.finished
 	# play happy/sad music here
+	
+	print($TextureProgressBar.value)
 	if $TextureProgressBar.value >= 80:
-		pass # happy music
+		$HAPPY.play()
+		$Princess/AnimatedSprite2D.frame = 2
 	else:
-		pass # sad music
+		$Princess/AnimatedSprite2D.frame = 1
+		$Sad.play()
 	
 	await get_tree().create_timer(4).timeout
 	get_tree().change_scene_to_file("res://scenes/main_menu/main_menu.tscn")

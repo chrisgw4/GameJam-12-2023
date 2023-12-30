@@ -1,15 +1,26 @@
-[gd_scene load_steps=8 format=3 uid="uid://b8xkby652v157"]
+[gd_scene load_steps=13 format=3 uid="uid://b8xkby652v157"]
 
 [ext_resource type="Texture2D" uid="uid://dla1bp83255n5" path="res://assets/Charm/Charm_Empty.PNG" id="1_6dne4"]
 [ext_resource type="Script" path="res://scenes/ending/end_game.gd" id="1_sqp0l"]
 [ext_resource type="Texture2D" uid="uid://bin7ukrh3dvsh" path="res://assets/Charm/Charm_Full.PNG" id="2_rcvk3"]
-[ext_resource type="Texture2D" uid="uid://6vj1s4o1c7al" path="res://assets/jump/Jump.png" id="4_lh76h"]
+[ext_resource type="Texture2D" uid="uid://cn51pv002avwq" path="res://assets/music/Princess Judging.png" id="4_27au3"]
+[ext_resource type="Texture2D" uid="uid://cb4cnhgq43x3f" path="res://assets/music/You Lost.png" id="5_a8rlq"]
+[ext_resource type="AudioStream" uid="uid://886mkminmpd2" path="res://assets/music/Main Menu Theme.mp3" id="5_oej5h"]
+[ext_resource type="Texture2D" uid="uid://p0cti81u40dd" path="res://assets/music/You Won.png" id="6_7dvfy"]
+[ext_resource type="AudioStream" uid="uid://dkdtygxd6qt04" path="res://assets/music/Sad.mp3" id="6_rdu0j"]
+[ext_resource type="AudioStream" uid="uid://cwlwvc276m0id" path="res://assets/music/Tada!!!.mp3" id="7_44puw"]
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_6etlp"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_588fe"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("4_lh76h")
+"texture": ExtResource("4_27au3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_a8rlq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_7dvfy")
 }],
 "loop": true,
 "name": &"default",
@@ -47,7 +58,7 @@ linear_velocity = Vector2(100, 0)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Princess"]
 scale = Vector2(0.25, 0.25)
-sprite_frames = SubResource("SpriteFrames_6etlp")
+sprite_frames = SubResource("SpriteFrames_588fe")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Princess"]
 shape = SubResource("CapsuleShape2D_rubco")
@@ -57,6 +68,18 @@ shape = SubResource("CapsuleShape2D_rubco")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(-23.75, 453)
 shape = SubResource("RectangleShape2D_2q0t2")
+
+[node name="HAPPY" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_oej5h")
+bus = &"Music"
+
+[node name="Sad" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_rdu0j")
+bus = &"Music"
+
+[node name="Drum" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_44puw")
+bus = &"Sound Effects"
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
