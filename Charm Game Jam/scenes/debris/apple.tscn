@@ -1,0 +1,30 @@
+[gd_scene load_steps=4 format=3 uid="uid://cp45fr2nkywus"]
+
+[ext_resource type="Script" path="res://scenes/debris/fruit_debris.gd" id="1_gmgxh"]
+[ext_resource type="Texture2D" uid="uid://0rkm2rs18vyj" path="res://assets/stalls/Apple.png" id="1_rmrw6"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2buq3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_rmrw6")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Apple" type="RigidBody2D"]
+collision_layer = 0
+center_of_mass_mode = 1
+center_of_mass = Vector2(0, 4)
+script = ExtResource("1_gmgxh")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.6, 0.6)
+sprite_frames = SubResource("SpriteFrames_2buq3")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+scale = Vector2(0.6, 0.6)
+build_mode = 1
+polygon = PackedVector2Array(5, -39, 3, -15, 18, -21, 34, -14, 37, -4, 32, 18, 19, 38, 8, 39, 0, 33, -7, 40, -20, 39, -32, 19, -38, -8, -27, -20, -12, -20, -2, -14, -6, -40)

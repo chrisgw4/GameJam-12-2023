@@ -1,4 +1,4 @@
-extends Node2D
+extends StaticBody2D
 
 
 # Called when the node enters the scene tree for the first time.
@@ -7,10 +7,10 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_delta):
+func _process(delta):
 	pass
 
 
-func _on_pick_up_range_body_entered(body):
-	body.charm_progress += 1
-	queue_free()
+func _on_break_area_body_entered(body):
+	body.charm_progress -= 10
+	$BreakArea.queue_free()

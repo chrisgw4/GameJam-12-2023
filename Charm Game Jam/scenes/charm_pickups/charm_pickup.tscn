@@ -1,13 +1,13 @@
 [gd_scene load_steps=5 format=3 uid="uid://boinb1ngjgvg"]
 
 [ext_resource type="Script" path="res://scenes/charm_pickups/charm_pickup.gd" id="1_epk8n"]
-[ext_resource type="Texture2D" uid="uid://dqnx1wo02axmo" path="res://assets/Charm/Charm_Pickup.PNG" id="2_6b6th"]
+[ext_resource type="Texture2D" uid="uid://bin7ukrh3dvsh" path="res://assets/Charm/Charm_Full.PNG" id="2_vy5rg"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_8c676"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_6b6th")
+"texture": ExtResource("2_vy5rg")
 }],
 "loop": true,
 "name": &"default",
@@ -21,8 +21,8 @@ radius = 32.1403
 script = ExtResource("1_epk8n")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(2, -6)
-scale = Vector2(0.103027, 0.103027)
+position = Vector2(1.19209e-07, -4.76837e-07)
+scale = Vector2(0.035, 0.035)
 sprite_frames = SubResource("SpriteFrames_8c676")
 
 [node name="PickUpRange" type="Area2D" parent="."]

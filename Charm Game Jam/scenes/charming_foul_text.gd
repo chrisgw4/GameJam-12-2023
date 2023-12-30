@@ -20,6 +20,9 @@ func set_type(string:String):
 	elif string.to_lower() == "charming":
 		$RichTextLabel.text = charm_array.pick_random()
 		$RichTextLabel.theme = charming_tres
+	elif string.to_lower() == "irresistable":
+		$RichTextLabel.text = "Irresistable"
+		$RichTextLabel.theme = charming_tres
 	else:
 		$RichTextLabel.text = '1'
 		$RichTextLabel.theme = charming_tres

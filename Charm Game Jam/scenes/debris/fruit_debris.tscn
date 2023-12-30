@@ -1,0 +1,38 @@
+[gd_scene load_steps=8 format=3 uid="uid://cd068e21tc2yl"]
+
+[ext_resource type="PackedScene" uid="uid://c7a5tlsfoa70w" path="res://scenes/debris/debris.tscn" id="1_5proh"]
+[ext_resource type="Script" path="res://scenes/debris/fruit_debris.gd" id="2_l1ldv"]
+[ext_resource type="Texture2D" uid="uid://0rkm2rs18vyj" path="res://assets/stalls/Apple.png" id="2_lkasu"]
+[ext_resource type="Texture2D" uid="uid://dvp6fbfqpct0g" path="res://assets/stalls/Banana.png" id="3_20u5u"]
+[ext_resource type="Texture2D" uid="uid://bqclvcr25eve" path="res://assets/stalls/Pear.png" id="4_m0onq"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_al6nl"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_lkasu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_20u5u")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_m0onq")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_6lbtq"]
+radius = 27.2947
+
+[node name="FruitDebris" instance=ExtResource("1_5proh")]
+collision_layer = 0
+script = ExtResource("2_l1ldv")
+
+[node name="AnimatedSprite2D" parent="." index="0"]
+scale = Vector2(0.6, 0.6)
+sprite_frames = SubResource("SpriteFrames_al6nl")
+
+[node name="CollisionShape2D" parent="." index="1"]
+shape = SubResource("CircleShape2D_6lbtq")

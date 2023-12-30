@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://0n13n87bs4m7"]
+[gd_scene load_steps=3 format=3 uid="uid://0n13n87bs4m7"]
 
 [ext_resource type="Script" path="res://scenes/shop_stalls/shop_stall.gd" id="1_d1sb5"]
+[ext_resource type="Texture2D" uid="uid://dpcn576i3r5ly" path="res://assets/stalls/FoStEr_ThE_cRaSh_HaS_tHe_WhItE_BaCkGrOuNd.png" id="2_mfppy"]
 
 [node name="ShopStall" type="StaticBody2D"]
 script = ExtResource("1_d1sb5")
@@ -14,5 +15,10 @@ collision_layer = 0
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BreakArea"]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+
+[node name="Crash" type="Sprite2D" parent="."]
+texture = ExtResource("2_mfppy")
 
 [connection signal="body_entered" from="BreakArea" to="." method="_on_break_area_body_entered"]

@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://de7hk73sbyua4"]
+[gd_scene load_steps=7 format=3 uid="uid://de7hk73sbyua4"]
 
 [ext_resource type="PackedScene" uid="uid://dbg2liwiwsw0h" path="res://scenes/new_pickup_object/box.tscn" id="1_3x8l0"]
 [ext_resource type="Script" path="res://scenes/tutorial.gd" id="1_5erc0"]
 [ext_resource type="PackedScene" uid="uid://bpgeeo1h8pj4o" path="res://scenes/tree/tree.tscn" id="2_7gdqi"]
 [ext_resource type="PackedScene" uid="uid://dq3jquxg1ttyu" path="res://scenes/shop_stalls/shop_stall_2.tscn" id="3_ntrvn"]
+[ext_resource type="PackedScene" uid="uid://3u6q2kawr5nc" path="res://scenes/slide_obstacles/slide_obstacle_1.tscn" id="5_b4x3l"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8s1jy"]
 size = Vector2(40, 685)
@@ -37,10 +38,10 @@ text = "Place the box \"E\" beneath the cat to save it!"
 position = Vector2(1689, -100)
 
 [node name="RichTextLabel3" type="RichTextLabel" parent="."]
-offset_left = 1770.0
-offset_top = -291.0
-offset_right = 2043.0
-offset_bottom = -210.0
+offset_left = 1426.0
+offset_top = -359.0
+offset_right = 1699.0
+offset_bottom = -278.0
 theme_override_font_sizes/normal_font_size = 24
 text = "Jump over the stalls to avoid losing charm!"
 
@@ -49,7 +50,18 @@ collision_layer = 0
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="EndTutorial"]
-position = Vector2(2186, -342.5)
+position = Vector2(3017, -342)
 shape = SubResource("RectangleShape2D_8s1jy")
+
+[node name="Slide Obstacle 1" parent="." instance=ExtResource("5_b4x3l")]
+position = Vector2(2303, -90)
+
+[node name="RichTextLabel4" type="RichTextLabel" parent="."]
+offset_left = 1927.0
+offset_top = -176.0
+offset_right = 2234.0
+offset_bottom = -101.0
+theme_override_font_sizes/normal_font_size = 24
+text = "Slide under the obstacle to avoid breaking it!"
 
 [connection signal="body_entered" from="EndTutorial" to="." method="_on_end_tutorial_body_entered"]

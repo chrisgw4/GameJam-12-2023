@@ -1,0 +1,41 @@
+[gd_scene load_steps=8 format=3 uid="uid://c23mfpeapncl2"]
+
+[ext_resource type="PackedScene" uid="uid://c7a5tlsfoa70w" path="res://scenes/debris/debris.tscn" id="1_v07iu"]
+[ext_resource type="Texture2D" uid="uid://dyva47amts1po" path="res://assets/stalls/Plank_1.png" id="2_uq4ww"]
+[ext_resource type="Script" path="res://scenes/debris/wood_debris.gd" id="2_wtgf0"]
+[ext_resource type="Texture2D" uid="uid://24stwpsf5wuc" path="res://assets/stalls/Plank_2.png" id="3_6ccan"]
+[ext_resource type="Texture2D" uid="uid://b2gk74pr74h0k" path="res://assets/stalls/Plank_3.png" id="4_38a34"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_a7juq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_uq4ww")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_6ccan")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_38a34")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ysm1i"]
+size = Vector2(51, 130)
+
+[node name="WoodDebris" instance=ExtResource("1_v07iu")]
+collision_layer = 0
+script = ExtResource("2_wtgf0")
+
+[node name="AnimatedSprite2D" parent="." index="0"]
+scale = Vector2(0.6, 0.6)
+sprite_frames = SubResource("SpriteFrames_a7juq")
+frame = 2
+
+[node name="CollisionShape2D" parent="." index="1"]
+position = Vector2(-2.98023e-08, -0.25)
+scale = Vector2(0.6, 0.6)
+shape = SubResource("RectangleShape2D_ysm1i")

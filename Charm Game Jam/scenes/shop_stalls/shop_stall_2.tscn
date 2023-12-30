@@ -1,12 +1,109 @@
-[gd_scene load_steps=4 format=3 uid="uid://dq3jquxg1ttyu"]
+[gd_scene load_steps=9 format=3 uid="uid://dq3jquxg1ttyu"]
 
 [ext_resource type="PackedScene" uid="uid://0n13n87bs4m7" path="res://scenes/shop_stalls/shop_stall.tscn" id="1_8ujct"]
+[ext_resource type="Texture2D" uid="uid://dbrhwrj3tkvth" path="res://assets/stalls/Stall.png" id="2_gleht"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_r2n46"]
 size = Vector2(200, 200)
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_1cmn1"]
-radius = 94.0479
+[sub_resource type="SpriteFrames" id="SpriteFrames_qki8w"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_gleht")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0tw7n"]
+radius = 74.0
+height = 188.0
+
+[sub_resource type="Animation" id="Animation_yfsc6"]
+resource_name = "crash"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Crash:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0.01, 0.01), Vector2(0.75, 0.75)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Crash:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AnimatedSprite2D:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.2),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_v4cwb"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Crash:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.45, 0.45)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Crash:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_xrybd"]
+_data = {
+"RESET": SubResource("Animation_v4cwb"),
+"crash": SubResource("Animation_yfsc6")
+}
 
 [node name="ShopStall_2" instance=ExtResource("1_8ujct")]
 
@@ -14,5 +111,20 @@ radius = 94.0479
 shape = SubResource("RectangleShape2D_r2n46")
 one_way_collision = true
 
+[node name="AnimatedSprite2D" parent="." index="1"]
+scale = Vector2(0.25, 0.25)
+sprite_frames = SubResource("SpriteFrames_qki8w")
+
 [node name="CollisionShape2D" parent="BreakArea" index="0"]
-shape = SubResource("CircleShape2D_1cmn1")
+visible = false
+position = Vector2(14, 2)
+shape = SubResource("CapsuleShape2D_0tw7n")
+
+[node name="AnimationPlayer" parent="." index="3"]
+libraries = {
+"": SubResource("AnimationLibrary_xrybd")
+}
+
+[node name="Crash" parent="." index="4"]
+visible = false
+scale = Vector2(0.45, 0.45)

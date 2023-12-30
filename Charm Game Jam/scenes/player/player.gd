@@ -40,10 +40,20 @@ var charm_progress = 50:
 			get_tree().current_scene.add_child(temp)
 			temp.global_position = global_position+ Vector2(20,0)
 			
-			
+		var temp_val = charm_progress
 		charm_progress = new_val
 		if charm_progress < 0:
 			charm_progress = 0
+		if charm_progress > 100:
+			charm_progress = 100
+		
+		if charm_progress == 100 and temp_val != charm_progress:
+			$CharmingSoundEffect.play()
+			var temp = charming_foul_text.instantiate()
+			temp.set_type("irresistable")
+			get_tree().current_scene.get_node("UI").add_child(temp)
+			temp.global_position = get_tree().current_scene.get_node("UI/Control/TextureProgressBar").global_position + Vector2(-240,50)
+		
 		emit_signal("charm_changed", charm_progress)
 		
 		
@@ -56,6 +66,9 @@ signal drop_pressed
 var holding_object:bool = false
 var stop_pickup:bool = false
 
+var sliding:bool = false
+@export var start_sliding:bool = true
+
 
 func _physics_process(delta):
 	# Add the gravity.
@@ -66,18 +79,29 @@ func _physics_process(delta):
 	if Input.is_action_just_pressed("jump") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
 		$Jump_Sound_Effect.play()
+		sliding = false
 	
 	
 
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
-	var direction = Input.get_axis("move_left", "move_right")
-	if direction:
-		skidding = false
-		velocity.x = direction * SPEED
+	if not sliding:
+		var direction = Input.get_axis("move_left", "move_right")
+		if direction:
+			skidding = false
+			velocity.x = direction * SPEED
+		else:
+			skidding = true
+			velocity.x = lerpf(velocity.x, 0, FRICTION)#move_toward(velocity.x, 0, SPEED)
+		
+		if Input.is_action_just_pressed("slide"):
+			sliding = true
+			if is_on_floor():
+				velocity.x *= 1.5
+	elif abs(velocity.x) < 100:
+		sliding = false
 	else:
-		skidding = true
-		velocity.x = lerpf(velocity.x, 0, FRICTION)#move_toward(velocity.x, 0, SPEED)
+		velocity.x = lerpf(velocity.x, 0, FRICTION*0.25)#move_toward(velocity.x, 0, SPEED)
 
 	move_and_slide()
 

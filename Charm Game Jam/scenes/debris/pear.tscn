@@ -1,0 +1,30 @@
+[gd_scene load_steps=4 format=3 uid="uid://bi7706gy7ym8e"]
+
+[ext_resource type="Script" path="res://scenes/debris/fruit_debris.gd" id="1_jopv2"]
+[ext_resource type="Texture2D" uid="uid://bqclvcr25eve" path="res://assets/stalls/Pear.png" id="2_8fqqp"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5hxwp"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_8fqqp")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Pear" type="RigidBody2D"]
+collision_layer = 0
+center_of_mass_mode = 1
+center_of_mass = Vector2(0, 4)
+script = ExtResource("1_jopv2")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.6, 0.6)
+sprite_frames = SubResource("SpriteFrames_5hxwp")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+scale = Vector2(0.6, 0.6)
+build_mode = 1
+polygon = PackedVector2Array(0, -65, 5, -61.6667, 3.33333, -46.6667, 16.6667, -40, 21.6667, -33.3333, 20, -11.6667, 36.6667, 21.6667, 36.6667, 38.3333, 20, 56.6667, 1.66667, 65, -23.3333, 55, -36.6667, 30, -28.3333, 5, -18.3333, -11.6667, -21.6667, -35, -3.33333, -48.3333, -5, -63.3333)
