@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://hflp6iqdm5ae"]
+[gd_scene load_steps=13 format=3 uid="uid://hflp6iqdm5ae"]
 
 [ext_resource type="PackedScene" uid="uid://b1srp8i4xuuhj" path="res://scenes/player/player.tscn" id="1_6yklp"]
 [ext_resource type="Script" path="res://scenes/game.gd" id="1_7woxh"]
@@ -8,6 +8,7 @@
 [ext_resource type="Script" path="res://scenes/TimeLabel.gd" id="4_ajq20"]
 [ext_resource type="Texture2D" uid="uid://dwovy60b00noa" path="res://assets/background/layers/rocks_1.png" id="7_gbac6"]
 [ext_resource type="Texture2D" uid="uid://18s53s7o3end" path="res://assets/background/layers/sky.png" id="8_258hm"]
+[ext_resource type="Texture2D" uid="uid://rsqffs3uon7k" path="res://assets/background/bg1.png" id="8_dddo4"]
 [ext_resource type="Texture2D" uid="uid://dyplx8aokv1vd" path="res://assets/background/layers/rocks_2.png" id="9_3wa02"]
 [ext_resource type="PackedScene" uid="uid://dwk04klx5n542" path="res://scenes/levels/level.tscn" id="11_caly8"]
 [ext_resource type="AudioStream" uid="uid://fioslm8u8ey" path="res://assets/music/Level Music.mp3" id="14_t38eb"]
@@ -65,7 +66,7 @@ texture = ExtResource("8_258hm")
 motion_mirroring = Vector2(2400, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
-position = Vector2(-736, -1133)
+position = Vector2(-672, -1034)
 scale = Vector2(1.25, 1.25)
 texture = ExtResource("7_gbac6")
 centered = false
@@ -81,6 +82,14 @@ scale = Vector2(1.25, 1.25)
 texture = ExtResource("9_3wa02")
 centered = false
 region_rect = Rect2(1920, 1080, 100, 100)
+
+[node name="ParallaxLayer3" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_mirroring = Vector2(3151, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer3"]
+position = Vector2(898, -218)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("8_dddo4")
 
 [node name="Level_Music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("14_t38eb")

@@ -1,53 +1,141 @@
-[gd_scene load_steps=10 format=3 uid="uid://dbg2liwiwsw0h"]
+[gd_scene load_steps=15 format=3 uid="uid://dbg2liwiwsw0h"]
 
 [ext_resource type="PackedScene" uid="uid://ckxeprino2u42" path="res://scenes/new_pickup_object/pick_up_object.tscn" id="1_wyxed"]
+[ext_resource type="Texture2D" uid="uid://cyasgvs4qrqtk" path="res://assets/box/Crate.png" id="2_nnc5c"]
 [ext_resource type="Script" path="res://scenes/new_pickup_object/CatDetector.gd" id="2_vldws"]
 [ext_resource type="AudioStream" uid="uid://vi0gp381hxl3" path="res://assets/sound_effects/Box_Pick_Up.mp3" id="3_3j0ih"]
 [ext_resource type="AudioStream" uid="uid://bqnd0he8i0n8b" path="res://assets/sound_effects/cat_live.mp3" id="3_71l0p"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_71y1f"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_nnc5c")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_0gfst"]
 radius = 142.706
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qo8o5"]
-size = Vector2(80, 80)
+size = Vector2(116, 80)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fg8fh"]
-size = Vector2(80, 80)
+size = Vector2(116, 80)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_aoicw"]
-size = Vector2(80, 22)
+size = Vector2(116, 22)
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_mqmhv"]
-radius = 33.541
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ccofl"]
+radius = 18.0
+height = 102.0
+
+[sub_resource type="Animation" id="Animation_33vsc"]
+resource_name = "interactable"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ColorRect:color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(0, 0.596078, 0.196078, 0.27451), Color(0, 0.596078, 0.196078, 0.160784), Color(0, 0.596078, 0.196078, 0.27451)]
+}
+
+[sub_resource type="Animation" id="Animation_388t0"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ColorRect:color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0.596078, 0.196078, 0.160784)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_a3b12"]
+_data = {
+"RESET": SubResource("Animation_388t0"),
+"interactable": SubResource("Animation_33vsc")
+}
 
 [node name="Box" instance=ExtResource("1_wyxed")]
 collision_layer = 16
 collision_mask = 17
+lock_rotation = true
+
+[node name="AnimatedSprite2D" parent="." index="0"]
+scale = Vector2(0.395, 0.395)
+sprite_frames = SubResource("SpriteFrames_71y1f")
 
 [node name="CollisionShape2D" parent="PickUpRange" index="0"]
+visible = false
 shape = SubResource("CircleShape2D_0gfst")
 
 [node name="CollisionShape2D" parent="." index="2"]
+visible = false
 shape = SubResource("RectangleShape2D_qo8o5")
 
 [node name="CollisionShape2D2" parent="." index="3"]
+visible = false
+position = Vector2(-1.90735e-06, 3.63798e-12)
 shape = SubResource("RectangleShape2D_fg8fh")
 
 [node name="CatCollision" type="StaticBody2D" parent="." index="4"]
+visible = false
 collision_layer = 8
 collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CatCollision" index="0"]
 position = Vector2(0, 29)
 shape = SubResource("RectangleShape2D_aoicw")
+debug_color = Color(0.972549, 0, 0.454902, 0.419608)
 
 [node name="CatDetector" type="Area2D" parent="." index="5"]
+visible = false
 collision_layer = 0
 collision_mask = 4
 script = ExtResource("2_vldws")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CatDetector" index="0"]
-shape = SubResource("CircleShape2D_mqmhv")
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_ccofl")
+debug_color = Color(0.752941, 0.454902, 0.129412, 0.419608)
 
 [node name="Cat_Saved" type="AudioStreamPlayer" parent="CatDetector" index="1"]
 stream = ExtResource("3_71l0p")
@@ -57,6 +145,19 @@ bus = &"Sound Effects"
 [node name="Box_Sound_Effect" type="AudioStreamPlayer" parent="." index="6"]
 stream = ExtResource("3_3j0ih")
 bus = &"Sound Effects"
+
+[node name="ColorRect" type="ColorRect" parent="." index="7"]
+visible = false
+offset_left = -58.0
+offset_top = -40.0
+offset_right = 58.0
+offset_bottom = 40.0
+color = Color(0, 0.596078, 0.196078, 0.160784)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="8"]
+libraries = {
+"": SubResource("AnimationLibrary_a3b12")
+}
 
 [connection signal="body_entered" from="PickUpRange" to="." method="_on_pick_up_range_body_entered"]
 [connection signal="body_exited" from="PickUpRange" to="." method="_on_pick_up_range_body_exited"]

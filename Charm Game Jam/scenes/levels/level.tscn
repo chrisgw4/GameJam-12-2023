@@ -1,6 +1,7 @@
-[gd_scene load_steps=9 format=3 uid="uid://dwk04klx5n542"]
+[gd_scene load_steps=11 format=3 uid="uid://dwk04klx5n542"]
 
 [ext_resource type="PackedScene" uid="uid://dbg2liwiwsw0h" path="res://scenes/new_pickup_object/box.tscn" id="1_8rip3"]
+[ext_resource type="PackedScene" uid="uid://k26tyk3bi8fy" path="res://scenes/platform/platform.tscn" id="1_s4biy"]
 [ext_resource type="PackedScene" uid="uid://dq3jquxg1ttyu" path="res://scenes/shop_stalls/shop_stall_2.tscn" id="2_2dfgw"]
 [ext_resource type="PackedScene" uid="uid://bpgeeo1h8pj4o" path="res://scenes/tree/tree.tscn" id="3_th61d"]
 [ext_resource type="PackedScene" uid="uid://boinb1ngjgvg" path="res://scenes/charm_pickups/charm_pickup.tscn" id="7_4pnq0"]
@@ -11,7 +12,16 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_b2cac"]
 size = Vector2(9757, 105)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jyste"]
+size = Vector2(247, 829)
+
 [node name="Level" type="Node2D"]
+
+[node name="Platform" type="Node2D" parent="."]
+
+[node name="Platform" parent="Platform" instance=ExtResource("1_s4biy")]
+position = Vector2(6520, 169)
+scale = Vector2(82.16, 1)
 
 [node name="Tutorial" parent="." instance=ExtResource("9_k34ji")]
 position = Vector2(254, 149)
@@ -29,25 +39,25 @@ autoplay = true
 bus = &"Music"
 
 [node name="ShopStall_2" parent="." instance=ExtResource("2_2dfgw")]
-position = Vector2(3616, 49)
+position = Vector2(3615, 53)
 
 [node name="Slide Obstacle 1" parent="." instance=ExtResource("10_a7hb4")]
 position = Vector2(4032, 60)
 
 [node name="ShopStall_3" parent="." instance=ExtResource("2_2dfgw")]
-position = Vector2(4441, 49)
+position = Vector2(4441, 52)
 
 [node name="ShopStall_5" parent="." instance=ExtResource("2_2dfgw")]
-position = Vector2(4608, 49)
+position = Vector2(4608, 52)
 
 [node name="ShopStall_6" parent="." instance=ExtResource("2_2dfgw")]
-position = Vector2(6312, 49)
+position = Vector2(6312, 52)
 
 [node name="ShopStall_7" parent="." instance=ExtResource("2_2dfgw")]
-position = Vector2(6642, 49)
+position = Vector2(6642, 53)
 
 [node name="Slide Obstacle 2" parent="." instance=ExtResource("10_a7hb4")]
-position = Vector2(4618, -141)
+position = Vector2(4618, -135)
 
 [node name="Slide Obstacle 3" parent="." instance=ExtResource("10_a7hb4")]
 position = Vector2(5568, 60)
@@ -58,8 +68,8 @@ position = Vector2(5749, 60)
 [node name="Slide Obstacle 5" parent="." instance=ExtResource("10_a7hb4")]
 position = Vector2(7080, 60)
 
-[node name="Box" parent="." instance=ExtResource("1_8rip3")]
-position = Vector2(3464, 108)
+[node name="Box3" parent="." instance=ExtResource("1_8rip3")]
+position = Vector2(5964, 108)
 
 [node name="Box2" parent="." instance=ExtResource("1_8rip3")]
 position = Vector2(7080, 109)
@@ -141,3 +151,9 @@ position = Vector2(6692, -91)
 
 [node name="Tree" parent="." instance=ExtResource("3_th61d")]
 position = Vector2(5200, 152)
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
+position = Vector2(-819, -262)
+shape = SubResource("RectangleShape2D_jyste")

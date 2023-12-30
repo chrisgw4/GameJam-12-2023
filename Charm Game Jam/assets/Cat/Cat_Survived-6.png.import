@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cocchvwy37gr1"
-path="res://.godot/imported/Medieval_tiles_free_2.0.png-81abed3d312470e50d43bd59ece4db40.ctex"
+uid="uid://1nep1rie1u0l"
+path="res://.godot/imported/Cat_Survived-6.png-535a67d785281696d872a0ba298d85df.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/platforms/Medieval_tiles_free_2.0.png"
-dest_files=["res://.godot/imported/Medieval_tiles_free_2.0.png-81abed3d312470e50d43bd59ece4db40.ctex"]
+source_file="res://assets/Cat/Cat_Survived-6.png"
+dest_files=["res://.godot/imported/Cat_Survived-6.png-535a67d785281696d872a0ba298d85df.ctex"]
 
 [params]
 

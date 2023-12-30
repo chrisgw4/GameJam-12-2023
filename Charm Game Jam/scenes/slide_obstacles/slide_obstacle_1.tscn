@@ -1,12 +1,120 @@
-[gd_scene load_steps=4 format=3 uid="uid://3u6q2kawr5nc"]
+[gd_scene load_steps=11 format=3 uid="uid://3u6q2kawr5nc"]
 
 [ext_resource type="PackedScene" uid="uid://b2gw3db8nh6ie" path="res://scenes/slide_obstacles/slide_obstacle.tscn" id="1_ctn7w"]
+[ext_resource type="Texture2D" uid="uid://clm28b84owxwl" path="res://assets/News Stand/News Stand.png" id="2_svga6"]
+[ext_resource type="Texture2D" uid="uid://v3q6trxb5kts" path="res://assets/News Stand/Logan’s goofy ahh leg.png" id="3_4wkfn"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jqtve"]
 size = Vector2(180, 283)
 
+[sub_resource type="SpriteFrames" id="SpriteFrames_mk2cr"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_svga6")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uym7m"]
 size = Vector2(180, 177)
+
+[sub_resource type="Animation" id="Animation_v4cwb"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Crash:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.45, 0.45)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Crash:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_yfsc6"]
+resource_name = "crash"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Crash:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0.01, 0.01), Vector2(0.75, 0.75)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Crash:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AnimatedSprite2D:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.2),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_xrybd"]
+_data = {
+"RESET": SubResource("Animation_v4cwb"),
+"crash": SubResource("Animation_yfsc6")
+}
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_q2tcb"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_4wkfn")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="Slide Obstacle 1" instance=ExtResource("1_ctn7w")]
 collision_layer = 0
@@ -15,7 +123,26 @@ collision_layer = 0
 position = Vector2(0, -51.5)
 shape = SubResource("RectangleShape2D_jqtve")
 
+[node name="AnimatedSprite2D" parent="." index="1"]
+position = Vector2(0, -54)
+scale = Vector2(0.235, 0.235)
+sprite_frames = SubResource("SpriteFrames_mk2cr")
+
 [node name="CollisionShape2D" parent="BreakArea" index="0"]
 position = Vector2(0, -104.5)
 shape = SubResource("RectangleShape2D_uym7m")
 debug_color = Color(0.901961, 0.309804, 0, 0.419608)
+
+[node name="Crash" parent="." index="3"]
+position = Vector2(0, -66)
+
+[node name="AnimationPlayer" parent="." index="4"]
+libraries = {
+"": SubResource("AnimationLibrary_xrybd")
+}
+
+[node name="AnimatedSprite2D2" parent="." index="6"]
+z_index = 2
+position = Vector2(-71, 38)
+scale = Vector2(0.23, 0.23)
+sprite_frames = SubResource("SpriteFrames_q2tcb")

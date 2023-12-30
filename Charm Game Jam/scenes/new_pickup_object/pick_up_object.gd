@@ -12,6 +12,9 @@ var move_to_pickup_slot = false
 @onready var cat_detector_collision:CollisionShape2D = $CatDetector/CollisionShape2D
 @onready var cat_collision:CollisionShape2D = $CatCollision/CollisionShape2D
 
+
+
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
@@ -22,7 +25,7 @@ func _process(_delta):
 	pass
 
 func _physics_process(_delta):
-	rotation = 0
+	
 	
 	if move_to_pickup_slot:
 		global_position = global_position.lerp(player.pickup_slot.global_position, 0.15)
@@ -38,6 +41,7 @@ func _on_pick_up_range_body_entered(body):
 		player.connect("pick_up_pressed", _pick_me_up)
 		player.connect("drop_pressed", _drop_me_down)
 		$CatDetector.player = player
+		$AnimationPlayer.play("interactable")
 
 
 func _on_pick_up_range_body_exited(_body):
@@ -46,11 +50,13 @@ func _on_pick_up_range_body_exited(_body):
 		player.disconnect("pick_up_pressed", _pick_me_up)
 		player.disconnect("drop_pressed", _drop_me_down)
 		player = null
+		$AnimationPlayer.play("RESET")
 	
 
 
 func _pick_me_up():
 	if not player.holding_object:
+		$AnimationPlayer.play("RESET")
 		$CollisionShape2D.disabled = true
 		$CollisionShape2D2.disabled = true
 		player.holding_object = true
