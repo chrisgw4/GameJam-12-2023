@@ -16,15 +16,16 @@ animations = [{
 
 [node name="Apple" type="RigidBody2D"]
 collision_layer = 0
+mass = 0.5
 center_of_mass_mode = 1
 center_of_mass = Vector2(0, 4)
 script = ExtResource("1_gmgxh")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-scale = Vector2(0.6, 0.6)
+scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_2buq3")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
-scale = Vector2(0.6, 0.6)
+scale = Vector2(0.5, 0.5)
 build_mode = 1
 polygon = PackedVector2Array(5, -39, 3, -15, 18, -21, 34, -14, 37, -4, 32, 18, 19, 38, 8, 39, 0, 33, -7, 40, -20, 39, -32, 19, -38, -8, -27, -20, -12, -20, -2, -14, -6, -40)

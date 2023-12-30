@@ -1,7 +1,7 @@
 extends StaticBody2D
 
 
-var wood_debris = preload("res://scenes/debris/wood_debris.tscn")
+var wood_debris = [preload("res://scenes/debris/wood_1.tscn"),preload("res://scenes/debris/wood_2.tscn"), preload("res://scenes/debris/wood_3.tscn")]
 var fruit_debris = [preload("res://scenes/debris/apple.tscn"), preload("res://scenes/debris/banana.tscn"), preload("res://scenes/debris/pear.tscn")]
 
 
@@ -24,11 +24,11 @@ func _on_break_area_body_entered(body):
 	$AudioStreamPlayer.play()
 	
 	for i in range(0, 5):
-		var temp = wood_debris.instantiate()
-		get_tree().current_scene.add_child(temp)
+		var temp = wood_debris.pick_random().instantiate()
+		get_tree().current_scene.call_deferred("add_child", temp)
 		temp.global_position = global_position + Vector2(randi_range(-40, 40), randi_range(-20, 10))
 	
 	for i in range(0, 5):
 		var temp = fruit_debris.pick_random().instantiate()
-		get_tree().current_scene.add_child(temp)
+		get_tree().current_scene.call_deferred("add_child", temp)
 		temp.global_position = global_position + Vector2(randi_range(-40, 40), randi_range(-20, 10))

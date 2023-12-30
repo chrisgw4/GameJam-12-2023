@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://des0f770edywb"]
+
+[ext_resource type="Script" path="res://scenes/debris/debris.gd" id="1_xsa4h"]
+[ext_resource type="Texture2D" uid="uid://b2gk74pr74h0k" path="res://assets/stalls/Plank_3.png" id="2_nv2d3"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4q64u"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_nv2d3")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Wood_3" type="RigidBody2D"]
+collision_layer = 0
+script = ExtResource("1_xsa4h")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.65, 0.65)
+sprite_frames = SubResource("SpriteFrames_4q64u")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+scale = Vector2(0.65, 0.65)
+polygon = PackedVector2Array(-30, 83, -22, 86, -15, 86, -11, 84, -4, 84, 0, 82, 6, 84, 15, 86, 26, 86, 30, 84, 28, -77, 22, -84, 9, -87, -6, -84, -8, -62, -13, -59, -16, -76, -30, -77)
