@@ -90,7 +90,7 @@ script = ExtResource("4_ajq20")
 wait_time = 300.0
 
 [node name="Player" parent="." instance=ExtResource("1_6yklp")]
-position = Vector2(3, 24)
+position = Vector2(275, 13)
 
 [node name="ColorRect" type="ColorRect" parent="Player"]
 z_index = 2
